@@ -1,0 +1,115 @@
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { ArrowDown } from "lucide-react";
+import heroAtmosphere from "@/assets/hero-atmosphere.jpg";
+import { Particles } from "./Particles";
+
+export function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  return (
+    <section
+      id="top"
+      ref={ref}
+      className="relative isolate flex min-h-[100svh] w-full items-center justify-center overflow-hidden"
+    >
+      {/* Background image — parallax */}
+      <motion.div style={{ y }} className="absolute inset-0 -z-10">
+        <img
+          src={heroAtmosphere}
+          alt=""
+          aria-hidden
+          width={1920}
+          height={1088}
+          className="size-full object-cover opacity-70"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background" />
+      </motion.div>
+
+      {/* Grid overlay */}
+      <div className="absolute inset-0 -z-10 bg-grid bg-grid-fade opacity-60" aria-hidden />
+
+      {/* Radial glow behind title */}
+      <div
+        aria-hidden
+        className="absolute left-1/2 top-1/2 -z-10 size-[80vmin] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(closest-side, oklch(0.72 0.16 245 / 0.45), transparent 70%)",
+        }}
+      />
+
+      {/* Particles */}
+      <div className="absolute inset-0 -z-10">
+        <Particles />
+      </div>
+
+      <motion.div
+        style={{ opacity }}
+        className="relative mx-auto flex max-w-5xl flex-col items-center px-6 text-center"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-8 flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-3 py-1 backdrop-blur"
+        >
+          <span className="size-1.5 rounded-full bg-accent shadow-[0_0_10px_oklch(0.78_0.13_65)]" />
+          <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+            Pretoria · ZA
+          </span>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+          className="font-display text-balance text-6xl leading-[0.95] text-foreground text-glow-blue sm:text-7xl md:text-[7.5rem]"
+        >
+          Farai <em className="not-italic text-primary">Mhlanga</em>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
+          className="mt-6 max-w-xl text-pretty text-base text-muted-foreground sm:text-lg"
+        >
+          Computer Engineer building intelligent systems —
+          <span className="text-foreground/85"> embedded, backend, cloud.</span>
+          {" "}Pianist, film lover, community builder.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="mt-12 flex flex-col items-center gap-6"
+        >
+          <a
+            href="#work"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-5 py-2.5 text-sm text-foreground/90 transition-all hover:border-primary/40 hover:bg-primary/5 hover:text-foreground"
+          >
+            Explore the work
+            <ArrowDown className="size-3.5 transition-transform group-hover:translate-y-0.5" />
+          </a>
+
+          <div className="grid grid-cols-3 gap-x-10 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/70">
+            <span>Systems</span>
+            <span className="text-center">Embedded</span>
+            <span className="text-right">Cloud</span>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Bottom hairline */}
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px hairline-amber opacity-60" />
+    </section>
+  );
+}

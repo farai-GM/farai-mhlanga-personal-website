@@ -1,26 +1,58 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Nav } from "@/components/site/Nav";
+import { Hero } from "@/components/site/Hero";
+import { About } from "@/components/site/About";
+import { Projects } from "@/components/site/Projects";
+import { Beyond } from "@/components/site/Beyond";
+import { Community } from "@/components/site/Community";
+import { Contact, Footer } from "@/components/site/Contact";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Farai Mhlanga",
+    jobTitle: "Computer Engineer",
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "University of Pretoria",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Pretoria",
+      addressCountry: "ZA",
+    },
+    knowsAbout: [
+      "Systems Engineering",
+      "Embedded Systems",
+      "Backend Engineering",
+      "Cloud Engineering",
+      "Digital Signal Processing",
+      "FPGA",
+    ],
+  };
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
+    <div className="relative min-h-screen bg-background text-foreground noise">
+      <Nav />
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Beyond />
+        <Community />
+        <Contact />
+      </main>
+      <Footer />
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }

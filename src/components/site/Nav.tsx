@@ -1,0 +1,62 @@
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
+const links = [
+  { href: "#about", label: "About" },
+  { href: "#work", label: "Work" },
+  { href: "#beyond", label: "Beyond" },
+  { href: "#community", label: "Community" },
+  { href: "#contact", label: "Contact" },
+];
+
+export function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <motion.header
+      initial={{ y: -16, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+      className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4 sm:pt-6"
+    >
+      <nav
+        className={`flex items-center gap-1 rounded-full border border-white/8 px-2 py-1.5 transition-all duration-500 ${
+          scrolled ? "glass" : "bg-transparent border-transparent"
+        }`}
+      >
+        <a
+          href="#top"
+          className="flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium tracking-tight text-foreground/90 hover:text-foreground"
+          aria-label="Farai Mhlanga — home"
+        >
+          <span className="inline-block size-1.5 rounded-full bg-primary shadow-[0_0_12px_oklch(0.72_0.16_245)]" />
+          <span className="font-mono text-xs uppercase tracking-[0.18em]">FM</span>
+        </a>
+        <div className="hidden items-center md:flex">
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className="rounded-full px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {l.label}
+            </a>
+          ))}
+        </div>
+        <a
+          href="#contact"
+          className="ml-1 rounded-full bg-foreground/95 px-4 py-1.5 text-xs font-medium text-background transition-all hover:bg-foreground"
+        >
+          Get in touch
+        </a>
+      </nav>
+    </motion.header>
+  );
+}
