@@ -72,19 +72,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Farai Mhlanga — Computer Engineer" },
+      {
+        name: "description",
+        content:
+          "Farai Mhlanga is a Computer Engineer building intelligent systems across embedded, backend, and cloud — with a deep love for music, film, and community.",
+      },
+      { name: "author", content: "Farai Mhlanga" },
+      { name: "theme-color", content: "#0A0A0B" },
+      { property: "og:title", content: "Farai Mhlanga — Computer Engineer" },
+      {
+        property: "og:description",
+        content:
+          "An engineer who builds intelligent systems while deeply valuing creativity, storytelling, music, and community.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap",
       },
     ],
   }),
