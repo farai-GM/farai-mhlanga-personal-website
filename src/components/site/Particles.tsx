@@ -23,15 +23,17 @@ export function Particles() {
     let h = (canvas.height = canvas.offsetHeight * devicePixelRatio);
     const dpr = devicePixelRatio;
 
-    const count = Math.min(70, Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 22000));
+    const count = Math.min(110, Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 14000));
     const dots = Array.from({ length: count }).map(() => ({
       x: Math.random() * w,
       y: Math.random() * h,
-      r: (Math.random() * 1.2 + 0.3) * dpr,
-      vx: (Math.random() - 0.5) * 0.12 * dpr,
-      vy: (Math.random() - 0.5) * 0.12 * dpr,
-      a: Math.random() * 0.5 + 0.2,
-      hue: Math.random() > 0.85 ? "amber" : "blue",
+      r: (Math.random() * 1.8 + 0.4) * dpr,
+      vx: (Math.random() - 0.5) * 0.14 * dpr,
+      vy: (Math.random() - 0.5) * 0.14 * dpr,
+      a: Math.random() * 0.55 + 0.3,
+      hue: Math.random() > 0.7 ? "amber" : "blue",
+      twinkle: Math.random(),
+      twinkleSpeed: Math.random() * 0.02 + 0.005,
     }));
 
     const onResize = () => {
@@ -49,15 +51,36 @@ export function Particles() {
         if (d.x > w) d.x = 0;
         if (d.y < 0) d.y = h;
         if (d.y > h) d.y = 0;
+
+        d.twinkle += d.twinkleSpeed;
+        const twinkleFactor = 0.7 + 0.3 * Math.sin(d.twinkle * Math.PI * 2);
+        const alpha = d.a * twinkleFactor;
+
         ctx.beginPath();
         ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
         ctx.fillStyle =
           d.hue === "amber"
-            ? `rgba(240, 166, 90, ${d.a * 0.7})`
-            : `rgba(120, 180, 255, ${d.a})`;
-        ctx.shadowBlur = 8 * dpr;
+            ? `rgba(255, 195, 120, ${alpha * 0.85})`
+            : `rgba(140, 200, 255, ${alpha})`;
+        ctx.shadowBlur = 12 * dpr;
         ctx.shadowColor = ctx.fillStyle as string;
         ctx.fill();
+
+        // Subtle star cross for larger particles
+        if (d.r > 1.2 * dpr) {
+          ctx.beginPath();
+          const arm = d.r * 3.5;
+          ctx.moveTo(d.x - arm, d.y);
+          ctx.lineTo(d.x + arm, d.y);
+          ctx.moveTo(d.x, d.y - arm);
+          ctx.lineTo(d.x, d.y + arm);
+          ctx.strokeStyle =
+            d.hue === "amber"
+              ? `rgba(255, 195, 120, ${alpha * 0.25})`
+              : `rgba(140, 200, 255, ${alpha * 0.3})`;
+          ctx.lineWidth = 0.5 * dpr;
+          ctx.stroke();
+        }
       }
       raf = requestAnimationFrame(tick);
     };
