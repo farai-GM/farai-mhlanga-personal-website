@@ -23,15 +23,17 @@ export function Particles() {
     let h = (canvas.height = canvas.offsetHeight * devicePixelRatio);
     const dpr = devicePixelRatio;
 
-    const count = Math.min(70, Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 22000));
+    const count = Math.min(110, Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 14000));
     const dots = Array.from({ length: count }).map(() => ({
       x: Math.random() * w,
       y: Math.random() * h,
-      r: (Math.random() * 1.2 + 0.3) * dpr,
-      vx: (Math.random() - 0.5) * 0.12 * dpr,
-      vy: (Math.random() - 0.5) * 0.12 * dpr,
-      a: Math.random() * 0.5 + 0.2,
-      hue: Math.random() > 0.85 ? "amber" : "blue",
+      r: (Math.random() * 1.8 + 0.4) * dpr,
+      vx: (Math.random() - 0.5) * 0.14 * dpr,
+      vy: (Math.random() - 0.5) * 0.14 * dpr,
+      a: Math.random() * 0.55 + 0.3,
+      hue: Math.random() > 0.7 ? "amber" : "blue",
+      twinkle: Math.random(),
+      twinkleSpeed: Math.random() * 0.02 + 0.005,
     }));
 
     const onResize = () => {
