@@ -57,6 +57,15 @@ export function Projects() {
   return (
     <section id="work" className="relative w-full px-6 py-32 sm:py-40">
       <div className="absolute inset-0 -z-10 bg-grid bg-grid-fade opacity-30" aria-hidden />
+      {/* Subtle cyberpunk hint — the gradient begins here */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 opacity-60"
+        style={{
+          background:
+            "radial-gradient(ellipse at 90% 100%, oklch(0.72 0.28 340 / 0.10), transparent 55%), radial-gradient(ellipse at 10% 0%, oklch(0.86 0.16 200 / 0.08), transparent 60%)",
+        }}
+      />
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">

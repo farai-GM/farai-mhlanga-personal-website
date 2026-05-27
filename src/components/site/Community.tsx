@@ -3,7 +3,24 @@ import { Reveal, SectionLabel } from "./Reveal";
 
 export function Community() {
   return (
-    <section id="community" className="relative w-full px-6 py-32 sm:py-40">
+    <section id="community" className="relative w-full overflow-hidden px-6 py-32 sm:py-40">
+      {/* Cyberpunk afterglow — the city fades out */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          background:
+            "linear-gradient(180deg, oklch(0.09 0.03 290 / 0.85), var(--background) 70%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 opacity-40"
+        style={{
+          background:
+            "radial-gradient(ellipse at 80% 10%, oklch(0.72 0.28 340 / 0.20), transparent 55%), radial-gradient(ellipse at 10% 60%, oklch(0.78 0.13 65 / 0.18), transparent 55%)",
+        }}
+      />
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <SectionLabel>04 · Community</SectionLabel>
@@ -25,10 +42,11 @@ export function Community() {
             </Reveal>
             <Reveal delay={0.15}>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                I led with{" "}
-                <span className="text-foreground/90">operational transparency</span> and
-                a culture of accountability — structured documentation, continuous
-                improvement, and quiet trust.
+                The way I led IGNITE was shaped by{" "}
+                <span className="text-foreground/90">faith</span> — operational
+                transparency, stewardship, and a culture of accountability.
+                Structured documentation, continuous improvement, and quiet trust:
+                the long quiet questions made practical.
               </p>
             </Reveal>
 
