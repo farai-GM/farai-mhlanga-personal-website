@@ -52,6 +52,8 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-amber: var(--amber);
   --color-violet: var(--violet);
+  --color-neon-magenta: var(--neon-magenta);
+  --color-neon-cyan: var(--neon-cyan);
   --color-graphite: var(--graphite);
   --color-fog: var(--fog);
   --font-display: "Instrument Serif", ui-serif, Georgia, serif;
@@ -80,6 +82,8 @@
   --accent-foreground: oklch(0.13 0.005 260);
   --amber: oklch(0.78 0.13 65);
   --violet: oklch(0.68 0.17 290);             /* #8B6BFF */
+  --neon-magenta: oklch(0.72 0.28 340);       /* hot magenta #FF3DCB */
+  --neon-cyan: oklch(0.86 0.16 200);          /* electric cyan */
   --destructive: oklch(0.65 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(1 0 0 / 8%);

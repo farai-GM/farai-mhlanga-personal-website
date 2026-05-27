@@ -58,13 +58,13 @@ export function Hero() {
           aria-hidden
           width={1920}
           height={1088}
-          className="size-full object-cover opacity-70"
+          className="size-full object-cover opacity-90"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/15 to-background/60" />
       </motion.div>
 
       {/* Grid overlay */}
-      <div className="absolute inset-0 -z-10 bg-grid bg-grid-fade opacity-60" aria-hidden />
+      <div className="absolute inset-0 -z-10 bg-grid bg-grid-fade opacity-40" aria-hidden />
 
       {/* Dim overlay that darkens the scene (kept always) */}
       <div
@@ -97,10 +97,20 @@ export function Hero() {
       {/* Radial glow behind title */}
       <div
         aria-hidden
-        className="absolute left-1/2 top-1/2 -z-10 size-[80vmin] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 blur-3xl"
+        className="absolute left-1/2 top-1/2 -z-10 size-[90vmin] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70 blur-3xl"
         style={{
           background:
-            "radial-gradient(closest-side, oklch(0.72 0.16 245 / 0.45), transparent 70%)",
+            "radial-gradient(closest-side, oklch(0.72 0.16 245 / 0.55), transparent 70%)",
+        }}
+      />
+
+      {/* Secondary warm glow */}
+      <div
+        aria-hidden
+        className="absolute left-1/3 top-1/3 -z-10 size-[60vmin] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(closest-side, oklch(0.78 0.13 65 / 0.35), transparent 70%)",
         }}
       />
 

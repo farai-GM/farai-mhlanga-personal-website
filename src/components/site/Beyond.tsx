@@ -1,44 +1,66 @@
 import piano from "@/assets/beyond-piano.jpg";
 import film from "@/assets/beyond-film.jpg";
-import curiosity from "@/assets/beyond-curiosity.jpg";
+import faith from "@/assets/beyond-faith.jpg";
 import { Reveal, SectionLabel } from "./Reveal";
 
 const panels = [
   {
     image: piano,
-    label: "Piano",
+    label: "Music Quarter",
     title: "Music as architecture.",
     body:
       "Pianist and Music Director at Celebration Church Pretoria. I think in voicings, dynamics, and silence — the same way I think in systems.",
     meta: "Band Director · 2024—",
+    accent: "from-[oklch(0.86_0.16_200/0.55)] to-transparent",
   },
   {
     image: film,
-    label: "Film & Anime",
+    label: "Cinema Quarter",
     title: "Stories that light the dark.",
     body:
       "Cinema and anime shape how I see craft — frame composition, restraint, the discipline of mood. Blade Runner 2049, Interstellar, and quiet anime atmospheres are constant references.",
     meta: "Enthusiast",
+    accent: "from-[oklch(0.72_0.28_340/0.55)] to-transparent",
   },
   {
-    image: curiosity,
-    label: "Curiosity",
+    image: faith,
+    label: "Cathedral Quarter",
     title: "The long quiet questions.",
     body:
-      "I'm drawn to the edges — where engineering meets philosophy, where systems meet meaning. Curiosity is the underlying instrument.",
-    meta: "Always",
+      "Faith is the quiet architecture beneath the work. As Music Director at Celebration Church — and in the way I led IGNITE Society — service, stewardship, and integrity became engineering disciplines of their own.",
+    meta: "Christian · Always",
+    accent: "from-[oklch(0.78_0.13_65/0.55)] to-transparent",
   },
 ];
 
 export function Beyond() {
   return (
     <section id="beyond" className="relative w-full overflow-hidden px-6 py-32 sm:py-40">
+      {/* Cyberpunk atmosphere — peak of the gradient */}
       <div
         aria-hidden
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 0%, oklch(0.18 0.02 290 / 0.5), transparent 60%)",
+            "linear-gradient(180deg, oklch(0.10 0.04 290 / 0.95), oklch(0.08 0.02 260 / 0.95) 60%, var(--background))",
+        }}
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 opacity-50"
+        style={{
+          background:
+            "radial-gradient(ellipse at 15% 20%, oklch(0.72 0.28 340 / 0.35), transparent 55%), radial-gradient(ellipse at 85% 70%, oklch(0.86 0.16 200 / 0.30), transparent 55%)",
+        }}
+      />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-grid bg-grid-fade opacity-30" aria-hidden />
+      {/* Scanlines */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.07] mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(0deg, oklch(1 0 0 / 0.7) 0px, oklch(1 0 0 / 0.7) 1px, transparent 1px, transparent 3px)",
         }}
       />
       <div className="mx-auto max-w-6xl">
@@ -53,7 +75,8 @@ export function Beyond() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-6 text-base text-muted-foreground sm:text-lg">
-              The work I make is shaped by what I love outside the work.
+              Three quarters of a city I keep returning to — music, cinema, and faith.
+              Each one shapes the engineer.
             </p>
           </Reveal>
         </div>
@@ -61,20 +84,22 @@ export function Beyond() {
         <div className="mt-16 grid gap-8 md:grid-cols-3">
           {panels.map((p, i) => (
             <Reveal key={p.label} delay={i * 0.08}>
-              <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-card/30">
+              <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-card/30 shadow-[0_0_60px_-20px_oklch(0.72_0.28_340/0.25)] transition-shadow duration-700 hover:shadow-[0_0_80px_-15px_oklch(0.72_0.28_340/0.5)]">
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <img
                     src={p.image}
                     alt={p.label}
                     width={1280}
-                    height={896}
+                    height={1600}
                     loading="lazy"
-                    className="size-full object-cover opacity-85 transition-all duration-[1400ms] group-hover:scale-[1.03] group-hover:opacity-100"
+                    className="size-full object-cover opacity-95 transition-all duration-[1400ms] group-hover:scale-[1.03]"
                   />
-                  {/* letterbox */}
                   <div className="pointer-events-none absolute inset-x-0 top-0 h-10 bg-background/70" />
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-card via-card/40 to-transparent" />
-                  <div className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.24em] text-foreground/80">
+                  <div
+                    className={`pointer-events-none absolute inset-0 bg-gradient-to-tr ${p.accent} mix-blend-screen opacity-40`}
+                  />
+                  <div className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.24em] text-foreground/90">
                     {p.label}
                   </div>
                 </div>
