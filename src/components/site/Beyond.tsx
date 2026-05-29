@@ -36,33 +36,16 @@ const panels = [
 export function Beyond() {
   return (
     <section id="beyond" className="relative w-full overflow-hidden px-6 py-32 sm:py-40">
-      {/* Cyberpunk atmosphere — peak of the gradient */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10"
-        style={{
-          background:
-            "linear-gradient(180deg, oklch(0.10 0.04 290 / 0.95), oklch(0.08 0.02 260 / 0.95) 60%, var(--background))",
-        }}
-      />
+      {/* Local accent glows — the global ScrollAtmosphere supplies the wash */}
       <div
         aria-hidden
         className="absolute inset-0 -z-10 opacity-50"
         style={{
           background:
-            "radial-gradient(ellipse at 15% 20%, oklch(0.72 0.28 340 / 0.35), transparent 55%), radial-gradient(ellipse at 85% 70%, oklch(0.86 0.16 200 / 0.30), transparent 55%)",
+            "radial-gradient(ellipse at 15% 20%, oklch(0.72 0.28 340 / 0.25), transparent 55%), radial-gradient(ellipse at 85% 70%, oklch(0.86 0.16 200 / 0.22), transparent 55%)",
         }}
       />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-grid bg-grid-fade opacity-30" aria-hidden />
-      {/* Scanlines */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.07] mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg, oklch(1 0 0 / 0.7) 0px, oklch(1 0 0 / 0.7) 1px, transparent 1px, transparent 3px)",
-        }}
-      />
       <div className="mx-auto max-w-6xl">
         <div className="max-w-2xl">
           <Reveal>

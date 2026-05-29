@@ -6,6 +6,7 @@ import { Projects } from "@/components/site/Projects";
 import { Beyond } from "@/components/site/Beyond";
 import { Community } from "@/components/site/Community";
 import { Contact, Footer } from "@/components/site/Contact";
+import { ScrollAtmosphere } from "@/components/site/ScrollAtmosphere";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -37,7 +38,8 @@ function Index() {
   };
 
   return (
-    <div className="relative min-h-screen bg-background text-foreground noise">
+    <div className="relative min-h-screen text-foreground noise">
+      <ScrollAtmosphere />
       <Nav />
       <main>
         <Hero />
