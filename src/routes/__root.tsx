@@ -88,6 +88,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Farai Mhlanga — Computer Engineer" },
+      { name: "description", content: "A premium personal portfolio website for Farai Mhlanga, a Computer Engineer, showcasing professional skills and personal passions." },
+      { property: "og:description", content: "A premium personal portfolio website for Farai Mhlanga, a Computer Engineer, showcasing professional skills and personal passions." },
+      { name: "twitter:description", content: "A premium personal portfolio website for Farai Mhlanga, a Computer Engineer, showcasing professional skills and personal passions." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c733483f-7fb4-4c25-b964-76a36eb8ee5d/id-preview-13cbc4e4--51b2339a-c3c6-47f7-a0e9-76a1d5a98f7e.lovable.app-1779888556111.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c733483f-7fb4-4c25-b964-76a36eb8ee5d/id-preview-13cbc4e4--51b2339a-c3c6-47f7-a0e9-76a1d5a98f7e.lovable.app-1779888556111.png" },
     ],
     links: [
       {
