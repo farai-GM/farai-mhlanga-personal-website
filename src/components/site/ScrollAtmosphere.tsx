@@ -17,11 +17,11 @@ export function ScrollAtmosphere() {
     scrollYProgress,
     [0, 0.25, 0.55, 0.8, 1],
     [
-      "linear-gradient(180deg, oklch(0.13 0.005 260) 0%, oklch(0.13 0.005 260) 100%)",
-      "linear-gradient(180deg, oklch(0.13 0.01 270) 0%, oklch(0.12 0.03 285) 100%)",
-      "linear-gradient(180deg, oklch(0.11 0.05 290) 0%, oklch(0.09 0.06 305) 100%)",
-      "linear-gradient(180deg, oklch(0.10 0.05 295) 0%, oklch(0.08 0.03 270) 100%)",
-      "linear-gradient(180deg, oklch(0.10 0.02 270) 0%, oklch(0.13 0.005 260) 100%)",
+      "linear-gradient(180deg, oklch(0.13 0.005 260) 0%, oklch(0.14 0.02 275) 100%)",
+      "linear-gradient(180deg, oklch(0.15 0.05 285) 0%, oklch(0.16 0.09 305) 100%)",
+      "linear-gradient(180deg, oklch(0.17 0.12 320) 0%, oklch(0.15 0.14 295) 100%)",
+      "linear-gradient(180deg, oklch(0.15 0.10 305) 0%, oklch(0.12 0.07 285) 100%)",
+      "linear-gradient(180deg, oklch(0.13 0.04 280) 0%, oklch(0.13 0.01 260) 100%)",
     ],
   );
 
@@ -29,7 +29,7 @@ export function ScrollAtmosphere() {
   const neonOpacity = useTransform(
     scrollYProgress,
     [0, 0.2, 0.55, 0.75, 1],
-    [0, 0.15, 0.85, 0.55, 0.25],
+    [0.1, 0.45, 1, 0.85, 0.5],
   );
 
   // Magenta sweep drifts down the page
@@ -41,7 +41,7 @@ export function ScrollAtmosphere() {
   const scanlineOpacity = useTransform(
     scrollYProgress,
     [0, 0.35, 0.6, 0.85, 1],
-    [0, 0.04, 0.1, 0.07, 0.03],
+    [0.02, 0.1, 0.2, 0.15, 0.08],
   );
 
   return (
@@ -58,26 +58,26 @@ export function ScrollAtmosphere() {
         }}
       >
         <motion.div
-          className="absolute left-[-15%] h-[80vh] w-[80vh] rounded-full blur-3xl"
+          className="absolute left-[-10%] h-[95vh] w-[95vh] rounded-full blur-3xl"
           style={{
             top: magentaY,
             background:
-              "radial-gradient(circle, oklch(0.72 0.28 340 / 0.55), transparent 65%)",
+              "radial-gradient(circle, oklch(0.72 0.28 340 / 0.9), transparent 65%)",
           }}
         />
         <motion.div
-          className="absolute right-[-15%] h-[80vh] w-[80vh] rounded-full blur-3xl"
+          className="absolute right-[-10%] h-[95vh] w-[95vh] rounded-full blur-3xl"
           style={{
             top: cyanY,
             background:
-              "radial-gradient(circle, oklch(0.86 0.16 200 / 0.45), transparent 65%)",
+              "radial-gradient(circle, oklch(0.86 0.16 200 / 0.8), transparent 65%)",
           }}
         />
         <div
-          className="absolute inset-x-0 top-1/2 h-[40vh] -translate-y-1/2 blur-3xl"
+          className="absolute inset-x-0 top-1/2 h-[55vh] -translate-y-1/2 blur-3xl"
           style={{
             background:
-              "radial-gradient(ellipse at center, oklch(0.68 0.17 290 / 0.30), transparent 70%)",
+              "radial-gradient(ellipse at center, oklch(0.68 0.17 290 / 0.55), transparent 70%)",
           }}
         />
       </motion.div>
