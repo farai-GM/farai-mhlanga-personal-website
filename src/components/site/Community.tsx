@@ -4,15 +4,7 @@ import { Reveal, SectionLabel } from "./Reveal";
 export function Community() {
   return (
     <section id="community" className="relative w-full overflow-hidden px-6 py-32 sm:py-40">
-      {/* Cyberpunk afterglow — the city fades out */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            "linear-gradient(180deg, oklch(0.09 0.03 290 / 0.85), var(--background) 70%)",
-        }}
-      />
+      {/* Local accent glows — global ScrollAtmosphere supplies the base wash */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 opacity-40"
