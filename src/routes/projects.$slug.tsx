@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
-import { getProjectBySlug, projects } from "@/data/projects";
+import { getProjectBySlug, projects, type Project } from "@/data/projects";
 import { ScrollAtmosphere } from "@/components/site/ScrollAtmosphere";
 import { Nav } from "@/components/site/Nav";
 
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/projects/$slug")({
 });
 
 function ProjectDetail() {
-  const { project } = Route.useLoaderData();
+  const { project } = Route.useLoaderData() as { project: Project };
 
   return (
     <div className="relative min-h-screen bg-background text-foreground">
