@@ -14,8 +14,8 @@ export function Hero() {
   const REVEAL_RADIUS = 30; // px — adjust to change circular reveal size
   const { theme } = useTheme();
   const isLightMode = theme === "light";
-  const handleNameClick = () => {
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const handleNameClick = (targetID: string) => {
+    document.getElementById(targetID)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -145,7 +145,7 @@ export function Hero() {
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
           whileHover={{ y: -4, scale: 1.005, transition: { duration: 0.2 } }}
           whileTap={{ y: -2, scale: 0.995, transition: { duration: 0.1 } }}
-          onClick={handleNameClick}
+          onClick={() =>handleNameClick("about")}
           className="relative z-10 inline-flex cursor-pointer rounded-[1.5rem] px-3 py-2 shadow-[0_10px_40px_rgba(255,255,255,0.32)] backdrop-blur-sm sm:px-4 sm:py-3 dark:border-white/20 dark:bg-transparent dark:shadow-none"
         >
           <h1 className="font-display text-balance text-6xl leading-[0.95] text-foreground text-glow-blue sm:text-7xl md:text-[7.5rem] transition-colors hover:text-primary hover:drop-shadow-[0_0_28px_rgba(59,130,246,0.45)]">
@@ -156,6 +156,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
+           onClick={() =>handleNameClick("beyond")}
           className="mt-6 max-w-xl rounded-full bg-white/20 px-4 py-2 text-pretty text-base text-muted-foreground shadow-[0_10px_40px_rgba(255,255,255,0.32)] backdrop-blur-xl sm:text-lg transition-colors hover:text-primary hover:drop-shadow-[0_0_16px_rgba(59,130,246,0.35)] dark:border-white/10 dark:bg-transparent dark:shadow-none"
         >
           <span className="text-foreground/85">Engineering</span> systems - Fostering <span className="text-foreground/85">Creativity</span> - Living with <span className="text-foreground/85">Impact</span>
@@ -165,11 +166,11 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="mt-12 flex flex-col items-center gap-6"
+          className="mt-12 flex flex-col items-center gap-6 transform translate-y-40"
         >
           <a
             href="#work"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] backdrop-blur-sm px-5 py-2.5 text-sm text-foreground/90 transition-all hover:border-primary/40 hover:bg-primary/5 hover:text-foreground"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] backdrop-blur-lg px-5 py-2.5 text-sm text-foreground/90 transition-all hover:border-primary/40 hover:bg-primary/5 hover:text-foreground"
           >
             Explore the work
             <ArrowDown className="size-3.5 transition-transform group-hover:translate-y-0.5" />

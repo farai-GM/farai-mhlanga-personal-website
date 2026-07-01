@@ -48,11 +48,11 @@ export function About() {
               <p>
                 Final-year Computer Engineering student at the{" "}
                 <span className="text-foreground/90">University of Pretoria</span>, with an intrest
-                in AI, embedded systems, cyber security and software engineering.Thus, inspiring work in project ranging from
+                in AI, embedded systems, cyber security and software engineering. Thus, inspiring work in projects ranging from
                 FPGA implementations and digital signal processing to backend services and software engineering.
-                I care about systems thinking: how parts behave when they meet,
-                how to make the complex feel inevitable. To me good engineering builds systems
-                that solve problems with a design that makes them feel simple. Engineering is imagining what could be, and then building it.
+                I care about systems thinking: how parts behave when they meet, how to make the complex feel simple. 
+                To me good engineering builds systems that solve problems with a design that makes them feel easy. 
+                Engineering is imagining what could be, and then building it.
               </p>
             </div>
           </Reveal>
