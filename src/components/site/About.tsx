@@ -36,33 +36,30 @@ export function About() {
             <SectionLabel>01 · About</SectionLabel>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="mt-6 font-display text-4xl leading-[1.05] text-foreground sm:text-5xl md:text-6xl">
-              Engineer of systems,
+            <h2 className="mt-4 font-display text-4xl leading-[1.05] text-foreground sm:text-4xl md:text-5xl">
+              Computer Engineer,
               <br />
-              <span className="text-muted-foreground">student of everything else.</span>
+              <span className="text-muted-foreground">System thinker, constant learner.</span>
             </h2>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="mt-8 space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <div className="mt-4 space-y-5 text-base leading-relaxed text-muted-foreground sm:text-sm">
               <p>
                 Final-year Computer Engineering student at the{" "}
-                <span className="text-foreground/90">University of Pretoria</span>, working
-                across AI, embedded systems, and software — from FPGA implementations and
-                digital signal processing to backend services and cloud automation.
-              </p>
-              <p>
+                <span className="text-foreground/90">University of Pretoria</span>, with an intrest
+                in AI, embedded systems, cyber security and software engineering.Thus, inspiring work in project ranging from
+                FPGA implementations and digital signal processing to backend services and software engineering.
                 I care about systems thinking: how parts behave when they meet,
-                how to make the complex feel inevitable, and how good engineering
-                disappears into the experience it serves.
+                how to make the complex feel inevitable. To me good engineering builds systems
+                that solve problems with a design that makes them feel simple. Engineering is imagining what could be, and then building it.
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.15}>
-            <blockquote className="mt-12 border-l-2 border-primary/60 pl-6 font-display text-2xl leading-snug text-foreground/90 sm:text-3xl">
-              "An engineer who builds intelligent systems while deeply valuing creativity,
-              storytelling, music, and community."
+            <blockquote className="mt-10 border-l-2 border-primary/60 pl-6 font-display text-2xl leading-snug text-foreground/90 sm:text-3xl">
+              "Scientists investigate that which already is; engineers create that which has never been." <span className="text-muted-foreground sm:text-lg">- Albert Einstein</span>
             </blockquote>
           </Reveal>
 
@@ -71,7 +68,7 @@ export function About() {
               {[
                 ["Education", "BEng Computer Eng.\nUniversity of Pretoria"],
                 ["Now", "Sevenly Travel\nCheery Robot Academy"],
-                ["Focus", "Systems · Embedded\nBackend · Cloud"],
+                ["Interest", "Systems Architecture \nSoftware Engineering "],
               ].map(([k, v]) => (
                 <div key={k}>
                   <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/80">

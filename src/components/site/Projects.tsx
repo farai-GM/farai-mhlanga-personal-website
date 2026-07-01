@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import projectVoice from "@/assets/project-voice.jpg";
-import projectEmbedded from "@/assets/project-embedded.jpg";
-import projectSolar from "@/assets/project-solar.jpg";
+import projectVoice from "@/assets/Voice_Controlled_MK.jpeg";
+import projectWebsite from "@/assets/project-embedded.jpg";// rememer to change 
+import projectMarv from "@/assets/project-solar.jpg";//remember to change
+import FPGA from "@/assets/FPGA.jpeg";
 import { Reveal, SectionLabel } from "./Reveal";
 
 type Project = {
@@ -25,31 +26,31 @@ const projects: Project[] = [
     image: projectVoice,
   },
   {
-    year: "2024",
+    year: "2025",
     title: "FPGA Signal Processing",
     context: "University of Pretoria",
     summary:
-      "Digital signal processing pipelines implemented on FPGA — from filter design to deterministic real-time execution.",
-    stack: ["Quartus", "Verilog", "MATLAB", "DSP"],
-    image: projectEmbedded,
+      "Random memory access interfaced with UART implemented from first principles on FPGA for real time execution.",
+    stack: ["Quartus", "Verilog", "Python", "UART Bridge"],
+    image: FPGA,
   },
   {
-    year: "2023",
-    title: "Sasol Solar Car Challenge",
+    year: "2024",
+    title: "MARV Race Car",
     context: "University of Pretoria",
     summary:
-      "Mechanical subsystems, sensor integration, and firmware (PIC18) for a student-built solar vehicle racing across South Africa.",
-    stack: ["PIC18", "Fusion 360", "Firmware", "Strategy"],
-    image: projectSolar,
+      "Line following robot designed and built for autonomous navigation from first principles. Designed and implemented to detect multiple color lines and intersections with great accuracy.",
+    stack: ["PIC18", "Fusion 360", "Light Sensors"],
+    image: projectMarv,
   },
   {
-    year: "2025—",
-    title: "Sevenly Travel — Software Developer",
-    context: "React · Node · MongoDB",
+    year: "2026",
+    title: "Personal Website for CV and Portfolio",
+    context: "React · Node ",
     summary:
-      "Scalable frontend features and integrations for a travel platform, shipping in an Agile, AI-assisted workflow.",
-    stack: ["React", "Node.js", "MongoDB", "Jira"],
-    image: projectEmbedded,
+      "Scalable frontend features and integrations for a personal website, utilizing an AI-assisted workflow.",
+    stack: ["React", "Node.js", "Lovable", "GIT"],
+    image: projectWebsite,
   },
 ];
 
