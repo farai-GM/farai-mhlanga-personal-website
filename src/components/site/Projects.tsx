@@ -1,58 +1,16 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import projectVoice from "@/assets/Voice_Controlled_MK.jpeg";
-import projectWebsite from "@/assets/project-embedded.jpg";// rememer to change 
-import projectMarv from "@/assets/project-solar.jpg";//remember to change 
-import FPGA from "@/assets/FPGA.jpeg";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { useNavigate } from "@tanstack/react-router";
 import { Reveal, SectionLabel } from "./Reveal";
-
-type Project = {
-  year: string;
-  title: string;
-  summary: string;
-  stack: string[];
-  image: string;
-  context: string;
-};
-
-const projects: Project[] = [
-  {
-    year: "2025",
-    title: "Voice-Controlled Mouse & Keyboard",
-    context: "University of Pretoria",
-    summary:
-      "An embedded system enabling hands-free computer control through real-time voice command recognition and HID emulation.",
-    stack: ["Embedded","Khadas Vim 4", "DSP","STM32", "Python", "C", "C++"],
-    image: projectVoice,
-  },
-  {
-    year: "2025",
-    title: "FPGA Signal Processing",
-    context: "University of Pretoria",
-    summary:
-      "Random memory access interfaced with UART implemented from first principles on FPGA for real time execution.",
-    stack: ["Quartus", "UART Bridge", "Verilog", "Python"],
-    image: FPGA,
-  },
-  {
-    year: "2024",
-    title: "MARV Race Car",
-    context: "University of Pretoria",
-    summary:
-      "Multicolor line following robot designed and built for autonomous navigation from first principles.",
-    stack: ["MPLABX", "PIC18", "Fusion 360", "LTSpice", "Assembly"],
-    image: projectMarv,
-  },
-  {
-    year: "2026",
-    title: "Personal Website for CV and Portfolio",
-    context: "React · Node ",
-    summary:
-      "Scalable frontend features and integrations for a personal website, utilizing an AI-assisted workflow.",
-    stack: ["React", "Node.js", "Lovable", "GIT"],
-    image: projectWebsite,
-  },
-];
+import { projects, type Project } from "@/data/projects";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 export function Projects() {
   return (
@@ -98,12 +56,29 @@ export function Projects() {
 }
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const goToDetail = () => {
+    setOpen(false);
+    navigate({ to: "/projects/$slug", params: { slug: project.slug } });
+  };
+
   return (
     <Reveal delay={index * 0.05}>
       <motion.article
         whileHover={{ y: -4 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-card/40"
+        onClick={() => setOpen(true)}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setOpen(true);
+          }
+        }}
+        className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/10 bg-card/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
       >
         <div className="relative aspect-[16/10] overflow-hidden">
           <motion.img
@@ -154,6 +129,70 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           }}
         />
       </motion.article>
+
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="max-w-2xl overflow-hidden border-white/10 bg-card/95 p-0 backdrop-blur">
+          <button
+            type="button"
+            onClick={goToDetail}
+            className="group/dialog block w-full cursor-pointer text-left"
+            aria-label={`Open full page for ${project.title}`}
+          >
+            <div className="relative aspect-[16/8] overflow-hidden">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="size-full object-cover opacity-80 transition-transform duration-700 group-hover/dialog:scale-[1.03]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+            </div>
+            <div className="space-y-4 p-6 sm:p-8">
+              <DialogHeader className="space-y-2">
+                <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  <span>{project.year}</span>
+                  <span className="size-1 rounded-full bg-primary" />
+                  <span>{project.context}</span>
+                </div>
+                <DialogTitle className="font-display text-2xl leading-tight text-foreground sm:text-3xl">
+                  {project.title}
+                </DialogTitle>
+                <DialogDescription className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  {project.overview}
+                </DialogDescription>
+              </DialogHeader>
+
+              <ul className="space-y-2 text-sm leading-relaxed text-muted-foreground">
+                {project.details.slice(0, 2).map((d) => (
+                  <li key={d} className="flex gap-2">
+                    <span className="mt-2 size-1 shrink-0 rounded-full bg-primary" />
+                    <span>{d}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-1.5">
+                {project.stack.map((s) => (
+                  <span
+                    key={s}
+                    className="rounded-md border border-white/10 bg-white/[0.02] px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex items-center justify-between pt-2 text-sm font-medium text-primary">
+                <span className="inline-flex items-center gap-2">
+                  Read more <ArrowRight className="size-4 transition-transform group-hover/dialog:translate-x-0.5" />
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                  Click anywhere to open
+                </span>
+              </div>
+            </div>
+          </button>
+        </DialogContent>
+      </Dialog>
     </Reveal>
   );
 }
