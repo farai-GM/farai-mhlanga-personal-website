@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Sun, Moon } from "lucide-react";
+import { useTheme } from "@/hooks/use-theme";
 
 const links = [
   { href: "#about", label: "About" },
@@ -11,6 +13,7 @@ const links = [
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -50,6 +53,14 @@ export function Nav() {
             </a>
           ))}
         </div>
+        <button
+          type="button"
+          onClick={toggleTheme}
+          aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          className="ml-1 inline-flex size-8 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-foreground/80 transition-colors hover:text-foreground"
+        >
+          {theme === "dark" ? <Sun className="size-3.5" /> : <Moon className="size-3.5" />}
+        </button>
         <a
           href="#contact"
           className="ml-1 rounded-full bg-foreground/95 px-4 py-1.5 text-xs font-medium text-background transition-all hover:bg-foreground"
