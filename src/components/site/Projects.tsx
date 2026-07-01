@@ -37,12 +37,7 @@ export function Projects() {
               </h2>
             </Reveal>
           </div>
-          <Reveal delay={0.1}>
-            <p className="max-w-sm text-sm text-muted-foreground sm:text-base">
-              A working set of engineering and product projects across embedded,
-              signal processing, and full-stack software.
-            </p>
-          </Reveal>
+         
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-2 md:gap-8">
