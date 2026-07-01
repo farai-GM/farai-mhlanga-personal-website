@@ -45,7 +45,7 @@ export function ScrollAtmosphere() {
   );
 
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 hidden overflow-hidden dark:block">
       {/* Base color wash */}
       <motion.div className="absolute inset-0" style={{ background: baseBg }} />
 
