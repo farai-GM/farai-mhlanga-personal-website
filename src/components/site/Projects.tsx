@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import projectVoice from "@/assets/Voice_Controlled_MK.jpeg";
 import projectWebsite from "@/assets/project-embedded.jpg";// rememer to change 
-import projectMarv from "@/assets/project-solar.jpg";//remember to change
+import projectMarv from "@/assets/project-solar.jpg";//remember to change 
 import FPGA from "@/assets/FPGA.jpeg";
 import { Reveal, SectionLabel } from "./Reveal";
 
@@ -22,7 +22,7 @@ const projects: Project[] = [
     context: "University of Pretoria",
     summary:
       "An embedded system enabling hands-free computer control through real-time voice command recognition and HID emulation.",
-    stack: ["Embedded", "DSP", "Python", "C"],
+    stack: ["Embedded","Khadas Vim 4", "DSP","STM32", "Python", "C", "C++"],
     image: projectVoice,
   },
   {
@@ -31,7 +31,7 @@ const projects: Project[] = [
     context: "University of Pretoria",
     summary:
       "Random memory access interfaced with UART implemented from first principles on FPGA for real time execution.",
-    stack: ["Quartus", "Verilog", "Python", "UART Bridge"],
+    stack: ["Quartus", "UART Bridge", "Verilog", "Python"],
     image: FPGA,
   },
   {
@@ -39,8 +39,8 @@ const projects: Project[] = [
     title: "MARV Race Car",
     context: "University of Pretoria",
     summary:
-      "Line following robot designed and built for autonomous navigation from first principles. Designed and implemented to detect multiple color lines and intersections with great accuracy.",
-    stack: ["PIC18", "Fusion 360", "Light Sensors"],
+      "Multicolor line following robot designed and built for autonomous navigation from first principles.",
+    stack: ["MPLABX", "PIC18", "Fusion 360", "LTSpice", "Assembly"],
     image: projectMarv,
   },
   {
@@ -116,11 +116,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
           <div className="absolute left-4 top-4 flex items-center gap-2">
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/70">
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-black">
               {project.year}
             </span>
-            <span className="size-1 rounded-full bg-accent" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+            <span className="size-1 rounded-full bg-primary" />
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-black">
               {project.context}
             </span>
           </div>
