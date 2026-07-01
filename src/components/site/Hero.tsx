@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { ArrowDown } from "lucide-react";
 import heroAtmosphere from "@/assets/hero-atmosphere.jpg";
 import heroReveal from "@/assets/Hero Image BG.png";
+import { useTheme } from "@/hooks/use-theme";
 import { Particles } from "./Particles";
 
 export function Hero() {
@@ -11,6 +12,11 @@ export function Hero() {
   const posRef = useRef<{ x: number; y: number } | null>(null);
   const ticking = useRef(false);
   const REVEAL_RADIUS = 30; // px — adjust to change circular reveal size
+  const { theme } = useTheme();
+  const isLightMode = theme === "light";
+  const handleNameClick = () => {
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -55,14 +61,14 @@ export function Hero() {
       {/* Background image — parallax */}
       <motion.div style={{ y }} className="absolute inset-0 -z-10">
         <img
-          src={heroAtmosphere}
+          src={isLightMode ? heroReveal : heroAtmosphere}
           alt=""
           aria-hidden
           width={1920}
           height={1088}
           className="size-full object-cover opacity-100 dark:opacity-90"
         />
-        <div className="absolute inset-0 hidden bg-gradient-to-b from-background/20 via-background/15 to-background/60 dark:block" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/15 to-background/60 dark:block" />
       </motion.div>
 
       {/* Grid overlay */}
@@ -71,11 +77,9 @@ export function Hero() {
       {/* Dim overlay + torch reveal — dark mode only. */}
       <div
         aria-hidden
-        className="absolute inset-0 hidden dark:block"
+        className="pointer-events-none absolute inset-0 z-0 hidden dark:block"
         style={{
-          zIndex: -9,
           background: "rgba(5,5,5,0.62)",
-          pointerEvents: "none",
         }}
       />
 
@@ -83,13 +87,11 @@ export function Hero() {
       <div
         ref={maskRef}
         aria-hidden
-        className="absolute inset-0 hidden dark:block"
+        className="pointer-events-none absolute inset-0 z-0 hidden dark:block"
         style={{
-          zIndex: -8,
           backgroundImage: `url(${heroReveal})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          pointerEvents: "none",
           clipPath: `circle(0px at 0 0)`,
           opacity: 0,
           willChange: "clip-path, opacity",
@@ -123,7 +125,7 @@ export function Hero() {
 
       <motion.div
         style={{ opacity }}
-        className="relative mx-auto flex max-w-5xl flex-col items-center px-6 text-center"
+        className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 text-center"
       >
         <motion.div
           initial={{ opacity: 0, y: 8 }}
@@ -137,28 +139,24 @@ export function Hero() {
           </span>
         </motion.div>
 
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-          className="font-display text-balance text-6xl leading-[0.95] text-foreground text-glow-blue sm:text-7xl md:text-[7.5rem] transition-colors hover:text-primary hover:drop-shadow-[0_0_28px_rgba(59,130,246,0.45)]"
+          whileHover={{ y: -4, scale: 1.005, transition: { duration: 0.2 } }}
+          whileTap={{ y: -2, scale: 0.995, transition: { duration: 0.1 } }}
+          onClick={handleNameClick}
+          className="relative z-10 inline-flex cursor-pointer rounded-[1.5rem] px-3 py-2 shadow-[0_10px_40px_rgba(255,255,255,0.32)] backdrop-blur-sm sm:px-4 sm:py-3 dark:border-white/20 dark:bg-transparent dark:shadow-none"
         >
-          Farai <em className="not-italic text-primary">Gabriel</em> Mhlanga
-        </motion.h1>
-
+          <h1 className="font-display text-balance text-6xl leading-[0.95] text-foreground text-glow-blue sm:text-7xl md:text-[7.5rem] transition-colors hover:text-primary hover:drop-shadow-[0_0_28px_rgba(59,130,246,0.45)]">
+            Farai Gabriel Mhlanga
+          </h1>
+        </motion.div>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
-          className="mt-6 max-w-xl text-pretty text-base text-muted-foreground sm:text-lg transition-colors hover:text-primary hover:drop-shadow-[0_0_16px_rgba(59,130,246,0.35)]"
-        >
-          Computer Engineer with a love for <span className="text-foreground/85">systems thinking</span> 
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
-          className="mt-6 max-w-xl text-pretty text-base text-muted-foreground sm:text-lg transition-colors hover:text-primary hover:drop-shadow-[0_0_16px_rgba(59,130,246,0.35)]"
+          className="mt-6 max-w-xl rounded-full bg-white/20 px-4 py-2 text-pretty text-base text-muted-foreground shadow-[0_10px_40px_rgba(255,255,255,0.32)] backdrop-blur-xl sm:text-lg transition-colors hover:text-primary hover:drop-shadow-[0_0_16px_rgba(59,130,246,0.35)] dark:border-white/10 dark:bg-transparent dark:shadow-none"
         >
           <span className="text-foreground/85">Engineering</span> systems - Fostering <span className="text-foreground/85">Creativity</span> - Living with <span className="text-foreground/85">Impact</span>
         </motion.p>
@@ -171,17 +169,12 @@ export function Hero() {
         >
           <a
             href="#work"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-5 py-2.5 text-sm text-foreground/90 transition-all hover:border-primary/40 hover:bg-primary/5 hover:text-foreground"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] backdrop-blur-sm px-5 py-2.5 text-sm text-foreground/90 transition-all hover:border-primary/40 hover:bg-primary/5 hover:text-foreground"
           >
             Explore the work
             <ArrowDown className="size-3.5 transition-transform group-hover:translate-y-0.5" />
           </a>
 
-          <div className="grid grid-cols-3 gap-x-10 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/70">
-            <span>Systems</span>
-            <span className="text-center">AI/Automation</span>
-            <span className="text-right">Software</span>
-          </div>
         </motion.div>
       </motion.div>
 
