@@ -2,7 +2,7 @@
 @source "../src";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 /*
  * Farai Mhlanga portfolio — cinematic dark design system.
@@ -63,7 +63,49 @@
 
 :root {
   --radius: 0.625rem;
-  /* Cinematic dark — applied at :root, no theme switching. */
+  /* Light theme — clean, print-inspired, keeps the same accent language. */
+  --background: oklch(0.985 0.003 260);        /* near-white */
+  --foreground: oklch(0.18 0.01 260);          /* deep graphite */
+  --graphite: oklch(0.93 0.005 260);
+  --fog: oklch(0.9 0.008 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.01 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.01 260);
+  --primary: oklch(0.55 0.19 250);             /* stronger blue for contrast */
+  --primary-foreground: oklch(0.985 0.003 260);
+  --secondary: oklch(0.94 0.005 260);
+  --secondary-foreground: oklch(0.18 0.01 260);
+  --muted: oklch(0.94 0.005 260);
+  --muted-foreground: oklch(0.42 0.01 260);
+  --accent: oklch(0.62 0.16 55);               /* deeper amber */
+  --accent-foreground: oklch(0.985 0.003 260);
+  --amber: oklch(0.62 0.16 55);
+  --violet: oklch(0.52 0.19 290);
+  --neon-magenta: oklch(0.6 0.24 340);
+  --neon-cyan: oklch(0.68 0.15 200);
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.985 0.003 260);
+  --border: oklch(0.18 0.01 260 / 12%);
+  --input: oklch(0.18 0.01 260 / 14%);
+  --ring: oklch(0.55 0.19 250 / 55%);
+  --chart-1: oklch(0.55 0.19 250);
+  --chart-2: oklch(0.62 0.16 55);
+  --chart-3: oklch(0.52 0.19 290);
+  --chart-4: oklch(0.55 0.1 200);
+  --chart-5: oklch(0.45 0.08 280);
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.18 0.01 260);
+  --sidebar-primary: oklch(0.55 0.19 250);
+  --sidebar-primary-foreground: oklch(0.985 0.003 260);
+  --sidebar-accent: oklch(0.94 0.005 260);
+  --sidebar-accent-foreground: oklch(0.18 0.01 260);
+  --sidebar-border: oklch(0.18 0.01 260 / 12%);
+  --sidebar-ring: oklch(0.55 0.19 250 / 55%);
+}
+
+.dark {
+  /* Cinematic dark — the original portfolio palette. */
   --background: oklch(0.13 0.005 260);        /* matte black #0A0A0B */
   --foreground: oklch(0.94 0.005 250);        /* off-white #E8EAED */
   --graphite: oklch(0.18 0.008 260);          /* #15161A */
