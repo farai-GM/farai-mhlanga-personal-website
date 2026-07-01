@@ -2,9 +2,9 @@ import { ArrowUpRight, Mail } from "lucide-react";
 import { Reveal, SectionLabel } from "./Reveal";
 
 const links = [
-  { label: "Email", href: "mailto:hello@faraimhlanga.com", value: "hello@faraimhlanga.com" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/", value: "linkedin.com/in/farai-mhlanga" },
-  { label: "GitHub", href: "https://github.com/", value: "github.com/faraimhlanga" },
+  { label: "Email", href: "mailto:farai.g.mhlanga@gmail.com", value: "farai.g.mhlanga@gmail.com" },
+  { label: "Phone Number", href: "tel:0724992384", value: "0724992384" },
+  { label: "GitHub", href: "https://github.com/", value: "github.com/faraimhlanga" },// put git repo for this website
 ];
 
 export function Contact() {
@@ -19,13 +19,13 @@ export function Contact() {
           <h2 className="mt-6 font-display text-5xl leading-[0.95] text-foreground sm:text-6xl md:text-7xl">
             Let's build something
             <br />
-            <span className="text-primary text-glow-blue">precise.</span>
+            <span className="text-primary text-glow-blue">Together.</span>
           </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
           <p className="mt-8 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Open to systems, embedded, and backend roles. Always happy to talk
+            Open to opportunities. Always happy to talk
             engineering, music, or a film worth watching.
           </p>
         </Reveal>
@@ -33,7 +33,7 @@ export function Contact() {
         <Reveal delay={0.15}>
           <div className="mt-12">
             <a
-              href="mailto:hello@faraimhlanga.com"
+              href="mailto:farai.g.mhlanga@gmail.com"
               className="group inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90"
             >
               <Mail className="size-4" />
