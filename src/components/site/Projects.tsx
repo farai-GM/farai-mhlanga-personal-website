@@ -14,7 +14,7 @@ import {
 
 export function Projects() {
   return (
-    <section id="work" className="relative w-full px-6 py-32 sm:py-40">
+    <section id="work" className="relative w-full px-6 py-20 sm:py-32 md:py-40">
       <div className="absolute inset-0 -z-10 bg-grid bg-grid-fade opacity-30" aria-hidden />
       {/* Subtle cyberpunk hint — the gradient begins here */}
       <div
@@ -40,7 +40,7 @@ export function Projects() {
          
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 md:gap-8">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 sm:mt-16 md:gap-8">
           {projects.map((p, i) => (
             <ProjectCard key={p.title} project={p} index={i} />
           ))}
@@ -96,11 +96,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </div>
           <ArrowUpRight className="absolute right-4 top-4 size-4 text-foreground/40 transition-all group-hover:right-3 group-hover:top-3 group-hover:text-primary" />
         </div>
-        <div className="flex flex-1 flex-col gap-4 p-6 sm:p-8">
-          <h3 className="font-display text-2xl leading-tight text-foreground sm:text-3xl">
+        <div className="flex flex-1 flex-col gap-3 p-5 sm:gap-4 sm:p-8">
+          <h3 className="font-display text-xl leading-tight text-foreground sm:text-2xl md:text-3xl">
             {project.title}
           </h3>
-          <p className="text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
+          <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
             {project.summary}
           </p>
           <div className="mt-auto flex flex-wrap gap-1.5 pt-2">
