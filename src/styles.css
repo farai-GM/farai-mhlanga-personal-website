@@ -211,10 +211,10 @@
   }
 
   .glass {
-    background: oklch(0.16 0.008 260 / 0.55);
+    background: oklch(61.306% 0.02237 267.191 / 0.175);
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
-    border: 1px solid oklch(1 0 0 / 0.08);
+    border: 1px solid oklch(98.231% 0.00837 271.335 / 0.2);
   }
 
   .hairline-amber {
