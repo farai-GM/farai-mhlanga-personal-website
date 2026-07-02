@@ -30,7 +30,7 @@ export function Nav() {
       className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4 sm:pt-6"
     >
       <nav
-        className={`flex items-center gap-1 rounded-full border border-white/8 px-2 py-1.5 transition-all duration-500 ${
+        className={`flex items-center gap-1 rounded-full border border-white/8 backdrop-blur-lg px-2 py-1.5 transition-all duration-500 ${
           scrolled ? "glass" : "bg-transparent border-transparent"
         }`}
       >
@@ -47,7 +47,7 @@ export function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="rounded-full px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="rounded-full  px-3 py-1.5 text-sm text-foreground transition-colors hover:text-foreground"
             >
               {l.label}
             </a>
