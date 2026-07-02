@@ -1,7 +1,8 @@
 import projectVoice from "@/assets/Voice_Controlled_MK.jpeg";
-import projectWebsite from "@/assets/project-embedded.jpg";
+import projectWebsite from "@/assets/Screenshot 2026-07-01 212452.png";
 import projectMarv from "@/assets/project-solar.jpg";
 import FPGA from "@/assets/FPGA.jpeg";
+
 
 export type Project = {
   slug: string;
