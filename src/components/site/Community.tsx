@@ -18,36 +18,30 @@ export function Community() {
           <SectionLabel>04 · Community</SectionLabel>
         </Reveal>
 
-        <div className="mt-10 grid gap-12 md:grid-cols-12 md:gap-16">
-          <div className="md:col-span-5">
+        <div className="mt-6 grid gap-12 md:grid-cols-12 md:gap-16">
+          <div className="md:col-span-8">
             <Reveal delay={0.05}>
               <h2 className="font-display text-4xl leading-[1.05] text-foreground sm:text-5xl md:text-6xl">
-                IGNITE Society.
+               Community engagement.
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="mt-8 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                As Chairman, I oversaw the executive committee — managing operational
-                finances, planning and coordinating events, and setting KPIs while
-                ensuring regulatory compliance with all relevant stakeholders.
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+                I firmly believe in the power of community. To me, creating meaningful change begins with taking responsibility for the world around you. This belief has shaped my involvement in several initiatives, most notably co-founding the IGNITE Society at the University of Pretoria with a group of close friends.
+
+Through IGNITE, we organized food and clothing drives, mentorship programs, and other community outreach initiatives. Our goal was to create a space where students could connect, grow, and develop into individuals who would positively impact those around them.
+
+As a Christian society, IGNITE also partnered with local churches to expand our outreach and better serve both students and the wider community. I believe that when people are empowered to grow, they are better equipped to serve others and create lasting change.
+
               </p>
             </Reveal>
-            <Reveal delay={0.15}>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                The way I led IGNITE was shaped by{" "}
-                <span className="text-foreground/90">faith</span> — operational
-                transparency, stewardship, and a culture of accountability.
-                Structured documentation, continuous improvement, and quiet trust:
-                the long quiet questions made practical.
-              </p>
-            </Reveal>
+            
 
             <Reveal delay={0.2}>
-              <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
+              <dl className="mt-6 grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
                 {[
-                  ["2023", "Chairman"],
-                  ["2018", "Solar Car · Logistics Lead"],
-                  ["2024—", "Music Director"],
+                  ["2021", "IGNITE Co-Founder"],
+                  ["2023", "IGNITE Chairman"],
                 ].map(([y, r]) => (
                   <div key={y}>
                     <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/80">
@@ -60,7 +54,7 @@ export function Community() {
             </Reveal>
           </div>
 
-          <div className="md:col-span-7">
+          <div className="md:col-span-8 md:col-start-9">
             <Reveal delay={0.1}>
               <div className="relative aspect-[5/4] overflow-hidden rounded-2xl border border-white/10">
                 <img
