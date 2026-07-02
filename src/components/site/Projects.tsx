@@ -86,11 +86,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
           <div className="absolute left-4 top-4 flex items-center gap-2">
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-black">
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-black backdrop-blur-sm">
               {project.year}
             </span>
             <span className="size-1 rounded-full bg-primary" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-black">
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-black backdrop-blur-sm">
               {project.context}
             </span>
           </div>
