@@ -134,7 +134,7 @@ export function Hero() {
           className="mb-8 flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-3 py-1 backdrop-blur"
         >
           <span className="size-1.5 rounded-full bg-accent shadow-[0_0_10px_oklch(0.78_0.13_65)]" />
-          <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+          <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-foreground/85">
             Pretoria · ZA
           </span>
         </motion.div>
@@ -157,7 +157,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
            onClick={() =>handleNameClick("beyond")}
-          className="mt-6 max-w-xl rounded-full bg-white/20 px-4 py-2 text-pretty text-base text-muted-foreground shadow-[0_10px_40px_rgba(255,255,255,0.32)] backdrop-blur-xl sm:text-lg transition-colors hover:text-primary hover:drop-shadow-[0_0_16px_rgba(59,130,246,0.35)] dark:border-white/10 dark:bg-transparent dark:shadow-none"
+          className="mt-6 max-w-xl rounded-full bg-white/20 px-4 py-2 text-pretty text-base text-foreground/85 shadow-[0_10px_40px_rgba(255,255,255,0.32)] backdrop-blur-xl sm:text-lg transition-colors hover:text-primary hover:drop-shadow-[0_0_16px_rgba(59,130,246,0.35)] dark:border-white/10 dark:bg-transparent dark:shadow-none"
         >
           <span className="text-foreground/85">Engineering</span> systems - Fostering <span className="text-foreground/85">Creativity</span> - Living with <span className="text-foreground/85">Impact</span>
         </motion.p>
