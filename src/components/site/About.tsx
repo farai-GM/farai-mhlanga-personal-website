@@ -1,4 +1,4 @@
-import portrait from "@/assets/portrait-placeholder.jpg";
+import portrait from "@/assets/Screenshot 2026-07-01 211203.png";
 import { Reveal, SectionLabel } from "./Reveal";
 
 export function About() {
