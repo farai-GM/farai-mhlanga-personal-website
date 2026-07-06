@@ -16,6 +16,13 @@ export function About() {
               className="size-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+            <div className="absolute inset-x-4 top-4 z-10 md:hidden">
+              <h2 className="max-w-[14rem] font-display text-3xl leading-[1.02] text-foreground">
+                Computer Engineer,
+                <br />
+                <span className="text-muted-foreground">System thinker, constant learner.</span>
+              </h2>
+            </div>
             <div className="absolute bottom-4 left-4 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/70">
               Farai Mhlanga · 2026
             </div>
@@ -36,7 +43,7 @@ export function About() {
             <SectionLabel>01 · About</SectionLabel>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="mt-4 font-display text-4xl leading-[1.05] text-foreground sm:text-4xl md:text-5xl">
+            <h2 className="mt-4 hidden font-display text-4xl leading-[1.05] text-foreground sm:text-4xl md:block md:text-5xl">
               Computer Engineer,
               <br />
               <span className="text-muted-foreground">System thinker, constant learner.</span>
