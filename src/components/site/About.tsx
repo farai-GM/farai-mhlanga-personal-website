@@ -3,10 +3,10 @@ import { Reveal, SectionLabel } from "./Reveal";
 
 export function About() {
   return (
-    <section id="about" className="relative w-full px-6 py-32 sm:py-40">
-      <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-[1fr_1.2fr] md:gap-20">
-        <Reveal className="relative">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10">
+    <section id="about" className="relative w-full px-6 py-20 sm:py-32 md:py-40">
+      <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1fr_1.2fr] md:gap-20">
+        <Reveal className="relative mx-auto w-full max-w-sm md:max-w-none">
+          <div className="relative aspect-[4/5] max-h-[60vh] overflow-hidden rounded-2xl border border-white/10 md:max-h-none">
             <img
               src={portrait}
               alt="Portrait of Farai Mhlanga"
