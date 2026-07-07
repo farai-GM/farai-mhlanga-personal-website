@@ -44,15 +44,15 @@ export function ScrollAtmosphere() {
     [0.02, 0.1, 0.2, 0.15, 0.08],
   );
 
-  // Light-mode wash — soft paper/dawn gradient with drifting warm & cool blooms
+  // Light-mode wash — cream, peach and light-brown warmth
   const lightBg = useTransform(
     scrollYProgress,
     [0, 0.3, 0.6, 1],
     [
-      "linear-gradient(180deg, oklch(0.985 0.003 260) 0%, oklch(0.96 0.02 250) 100%)",
-      "linear-gradient(180deg, oklch(0.96 0.03 250) 0%, oklch(0.94 0.04 285) 100%)",
-      "linear-gradient(180deg, oklch(0.95 0.04 300) 0%, oklch(0.94 0.05 50) 100%)",
-      "linear-gradient(180deg, oklch(0.96 0.03 55) 0%, oklch(0.985 0.003 260) 100%)",
+      "linear-gradient(180deg, #fdfaf5 0%, #f8efe2 100%)",
+      "linear-gradient(180deg, #f8ecdc 0%, #f2dcc4 100%)",
+      "linear-gradient(180deg, #f4dfc7 0%, #e9c9a6 100%)",
+      "linear-gradient(180deg, #f5e6d2 0%, #fdfaf5 100%)",
     ],
   );
   const lightBlobY1 = useTransform(scrollYProgress, [0, 1], ["-5%", "70%"]);
@@ -68,7 +68,7 @@ export function ScrollAtmosphere() {
         style={{
           top: lightBlobY1,
           background:
-            "radial-gradient(circle, oklch(0.78 0.13 65 / 0.45), transparent 65%)",
+            "radial-gradient(circle, rgba(240, 190, 150, 0.55), transparent 65%)",
         }}
       />
       <motion.div
@@ -76,14 +76,14 @@ export function ScrollAtmosphere() {
         style={{
           top: lightBlobY2,
           background:
-            "radial-gradient(circle, oklch(0.72 0.14 250 / 0.4), transparent 65%)",
+            "radial-gradient(circle, rgba(210, 165, 125, 0.5), transparent 65%)",
         }}
       />
       <div
         className="absolute inset-0 opacity-[0.35]"
         style={{
           backgroundImage:
-            "linear-gradient(to right, oklch(0.18 0.01 260 / 0.05) 1px, transparent 1px), linear-gradient(to bottom, oklch(0.18 0.01 260 / 0.05) 1px, transparent 1px)",
+            "linear-gradient(to right, rgba(120, 85, 60, 0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(120, 85, 60, 0.06) 1px, transparent 1px)",
           backgroundSize: "64px 64px",
           maskImage:
             "radial-gradient(ellipse at center, black 30%, transparent 75%)",
