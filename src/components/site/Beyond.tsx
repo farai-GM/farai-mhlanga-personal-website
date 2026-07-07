@@ -1,6 +1,6 @@
-import piano from "@/assets/beyond-piano.jpg";
-import film from "@/assets/beyond-film.jpg";
-import faith from "@/assets/beyond-faith.jpg";
+import piano from "@/assets/Piano 1.avif";
+import film from "@/assets/Cinema.png";
+import faith from "@/assets/church_inside.avif";
 import { Reveal, SectionLabel } from "./Reveal";
 
 const panels = [

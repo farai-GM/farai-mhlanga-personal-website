@@ -1,4 +1,4 @@
-import community from "@/assets/community-ignite.jpg";
+import community from "@/assets/IMG_0957.png";
 import { Reveal, SectionLabel } from "./Reveal";
 
 export function Community() {

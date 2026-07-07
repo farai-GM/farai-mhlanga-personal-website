@@ -74,8 +74,8 @@ export function About() {
             <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-white/10 pt-8 sm:grid-cols-3">
               {[
                 ["Education", "BEng Computer Eng.\nUniversity of Pretoria"],
-                ["Now", "Sevenly Travel\nCheery Robot Academy"],
-                ["Interest", "Systems Architecture \nSoftware Engineering "],
+                ["Working at", "Sevenly Travel\nCheery Robot Academy"],
+                // ["Roles", "Software developer \nTutor"],
               ].map(([k, v]) => (
                 <div key={k}>
                   <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/80">
