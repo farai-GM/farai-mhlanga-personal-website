@@ -44,14 +44,14 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <ul className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 sm:grid-cols-3">
+          <ul className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border/60 sm:grid-cols-3">
             {links.map((l) => (
-              <li key={l.label} className="bg-card/60">
+              <li key={l.label} className="bg-muted/70 dark:bg-card/60">
                 <a
                   href={l.href}
                   target={l.href.startsWith("http") ? "_blank" : undefined}
                   rel={l.href.startsWith("http") ? "noreferrer" : undefined}
-                  className="group flex h-full flex-col justify-between gap-6 p-6 transition-colors hover:bg-card"
+                  className="group flex h-full flex-col justify-between gap-6 p-6 transition-colors hover:bg-muted dark:hover:bg-card"
                 >
                   <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                     {l.label}
