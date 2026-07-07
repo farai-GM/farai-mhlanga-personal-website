@@ -68,7 +68,7 @@ export function Hero() {
           height={1088}
           className="size-full object-cover opacity-100 dark:opacity-90"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/15 to-background/60 dark:block" />
+        <div className="absolute inset-0 hidden bg-gradient-to-b from-background/20 via-background/15 to-background/60 dark:block" />
       </motion.div>
 
       {/* Grid overlay */}

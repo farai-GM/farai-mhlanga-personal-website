@@ -44,7 +44,56 @@ export function ScrollAtmosphere() {
     [0.02, 0.1, 0.2, 0.15, 0.08],
   );
 
+  // Light-mode wash — soft paper/dawn gradient with drifting warm & cool blooms
+  const lightBg = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.6, 1],
+    [
+      "linear-gradient(180deg, oklch(0.985 0.003 260) 0%, oklch(0.96 0.02 250) 100%)",
+      "linear-gradient(180deg, oklch(0.96 0.03 250) 0%, oklch(0.94 0.04 285) 100%)",
+      "linear-gradient(180deg, oklch(0.95 0.04 300) 0%, oklch(0.94 0.05 50) 100%)",
+      "linear-gradient(180deg, oklch(0.96 0.03 55) 0%, oklch(0.985 0.003 260) 100%)",
+    ],
+  );
+  const lightBlobY1 = useTransform(scrollYProgress, [0, 1], ["-5%", "70%"]);
+  const lightBlobY2 = useTransform(scrollYProgress, [0, 1], ["80%", "10%"]);
+
   return (
+    <>
+    {/* Light-mode atmosphere */}
+    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden dark:hidden">
+      <motion.div className="absolute inset-0" style={{ background: lightBg }} />
+      <motion.div
+        className="absolute left-[-15%] h-[90vh] w-[90vh] rounded-full opacity-60 blur-3xl"
+        style={{
+          top: lightBlobY1,
+          background:
+            "radial-gradient(circle, oklch(0.78 0.13 65 / 0.45), transparent 65%)",
+        }}
+      />
+      <motion.div
+        className="absolute right-[-15%] h-[90vh] w-[90vh] rounded-full opacity-55 blur-3xl"
+        style={{
+          top: lightBlobY2,
+          background:
+            "radial-gradient(circle, oklch(0.72 0.14 250 / 0.4), transparent 65%)",
+        }}
+      />
+      <div
+        className="absolute inset-0 opacity-[0.35]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, oklch(0.18 0.01 260 / 0.05) 1px, transparent 1px), linear-gradient(to bottom, oklch(0.18 0.01 260 / 0.05) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+          maskImage:
+            "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+        }}
+      />
+    </div>
+
+    {/* Dark-mode cyberpunk atmosphere */}
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 hidden overflow-hidden dark:block">
       {/* Base color wash */}
       <motion.div className="absolute inset-0" style={{ background: baseBg }} />
@@ -92,5 +141,6 @@ export function ScrollAtmosphere() {
         }}
       />
     </div>
+    </>
   );
 }
