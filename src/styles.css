@@ -213,7 +213,6 @@
   .glass {
     background: oklch(81.363% 0.01344 266.719 / 0.086);
     backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
     border: 1px solid oklch(98.231% 0.00837 271.335 / 0.2);
   }
 
