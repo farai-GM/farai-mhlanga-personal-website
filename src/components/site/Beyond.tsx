@@ -39,7 +39,7 @@ export function Beyond() {
       <div className="mx-auto max-w-6xl">
         <div className="max-w-2xl">
           <Reveal>
-            <SectionLabel>03 · Beyond Engineering</SectionLabel>
+            <SectionLabel>04 · Beyond Engineering</SectionLabel>
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="mt-6 font-display text-4xl leading-[1.05] text-foreground sm:text-5xl md:text-6xl">

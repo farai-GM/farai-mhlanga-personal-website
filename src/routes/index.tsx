@@ -3,6 +3,7 @@ import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/site/Hero";
 import { About } from "@/components/site/About";
 import { Projects } from "@/components/site/Projects";
+import { Experience } from "@/components/site/Experience";
 import { Beyond } from "@/components/site/Beyond";
 import { Community } from "@/components/site/Community";
 import { Contact, Footer } from "@/components/site/Contact";
@@ -45,6 +46,7 @@ function Index() {
         <Hero />
         <About />
         <Projects />
+        <Experience />
         <Beyond />
         <Community />
         <Contact />

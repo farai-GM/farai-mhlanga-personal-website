@@ -6,7 +6,7 @@ export function Community() {
     <section id="community" className="relative w-full overflow-hidden px-6 py-32 sm:py-40">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <SectionLabel>04 · Community</SectionLabel>
+          <SectionLabel>05 · Community</SectionLabel>
         </Reveal>
 
         <div className="mt-6 grid gap-12 md:grid-cols-12 md:gap-16">

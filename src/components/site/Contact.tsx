@@ -12,7 +12,7 @@ export function Contact() {
     <section id="contact" className="relative w-full px-6 pb-20 pt-32 sm:pb-24 sm:pt-40">
       <div className="mx-auto max-w-5xl">
         <Reveal>
-          <SectionLabel>05 · Contact</SectionLabel>
+          <SectionLabel>06 · Contact</SectionLabel>
         </Reveal>
 
         <Reveal delay={0.05}>
