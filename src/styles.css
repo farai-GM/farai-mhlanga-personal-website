@@ -65,19 +65,19 @@
   --radius: 0.625rem;
   /* Light theme — cream, peach, light brown warmth. */
   --background: oklch(0.98 0.012 75);          /* warm cream */
-  --foreground: oklch(0.24 0.03 45);           /* deep coffee brown */
+  --foreground: oklch(0.13 0.005 260);          
   --graphite: oklch(0.93 0.02 65);
   --fog: oklch(0.9 0.025 60);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.24 0.03 45);
+  --card-foreground: oklch(17.191% 0.0145 284.764);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.24 0.03 45);
-  --primary: oklch(0.55 0.13 45);              /* warm caramel brown */
+  --primary:  oklch(0.72 0.16 245);                 /* warm caramel brown */
   --primary-foreground: oklch(0.98 0.012 75);
   --secondary: oklch(0.94 0.025 70);
-  --secondary-foreground: oklch(0.24 0.03 45);
+  --secondary-foreground: oklch(18.132% 0.05399 277.968);
   --muted: oklch(0.93 0.025 65);
-  --muted-foreground: oklch(0.45 0.03 50);
+  --muted-foreground: oklch(28.666% 0.02745 281.534);
   --accent: oklch(0.78 0.09 55);               /* soft peach */
   --accent-foreground: oklch(0.24 0.03 45);
   --amber: oklch(0.72 0.12 60);
@@ -111,14 +111,14 @@
   --graphite: oklch(0.18 0.008 260);          /* #15161A */
   --fog: oklch(0.24 0.012 260);               /* #1E2026 */
   --card: oklch(0.16 0.008 260);
-  --card-foreground: oklch(0.94 0.005 250);
+  --card-foreground:  oklch(9.792% 0.00441 285.53);
   --popover: oklch(0.16 0.008 260);
   --popover-foreground: oklch(0.94 0.005 250);
   --primary: oklch(0.72 0.16 245);            /* electric blue #4DA3FF */
   --primary-foreground: oklch(0.13 0.005 260);
   --secondary: oklch(0.22 0.012 260);
   --secondary-foreground: oklch(0.94 0.005 250);
-  --muted: oklch(0.22 0.012 260);
+  --muted: oklch(0.93 0.025 65);
   --muted-foreground: oklch(0.65 0.012 260);  /* #8A8F98 */
   --accent: oklch(0.78 0.13 65);              /* amber #F0A65A */
   --accent-foreground: oklch(0.13 0.005 260);
@@ -209,13 +209,15 @@
   .text-glow-blue {
     text-shadow: 0 0 40px oklch(0.72 0.16 245 / 0.45);
   }
-
+/* @layer components { */
   .glass {
-    background: oklch(61.306% 0.02237 267.191 / 0.175);
-    backdrop-filter: blur(14px) saturate(140%);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    background: oklch(81.363% 0.01344 266.719 / 0.086);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
     border: 1px solid oklch(98.231% 0.00837 271.335 / 0.2);
   }
+
+
 
   .hairline-amber {
     background: linear-gradient(

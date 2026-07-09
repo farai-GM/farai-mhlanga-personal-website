@@ -56,7 +56,7 @@ export function Hero() {
         posRef.current = null;
       }}
       ref={ref}
-      className="relative isolate flex min-h-[100svh] w-full items-center justify-center overflow-hidden pt-16"
+      className="relative  flex min-h-[100svh] w-full items-center justify-center overflow-hidden pt-16"
     >
       {/* Background image — parallax */}
       <motion.div style={{ y }} className="absolute inset-0 -z-10">
@@ -79,7 +79,7 @@ export function Hero() {
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0 hidden dark:block"
         style={{
-          background: "rgba(5,5,5,0.62)",
+          background: "rgba(5,5,5,0.25)",
         }}
       />
 
@@ -131,7 +131,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-8 flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-3 py-1 backdrop-blur"
+          className="mb-8 flex items-center gap-2 rounded-full px-3 py-1 glass "
         >
           <span className="size-1.5 rounded-full bg-accent shadow-[0_0_10px_oklch(0.78_0.13_65)]" />
           <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-foreground/85">
@@ -146,7 +146,7 @@ export function Hero() {
           whileHover={{ y: -4, scale: 1.005, transition: { duration: 0.2 } }}
           whileTap={{ y: -2, scale: 0.995, transition: { duration: 0.1 } }}
           onClick={() =>handleNameClick("about")}
-          className="relative z-10 inline-flex cursor-pointer rounded-[1.5rem] px-3 py-2 shadow-[0_10px_40px_rgba(255,255,255,0.32)] backdrop-blur-sm sm:px-4 sm:py-3 dark:border-white/20 dark:bg-transparent dark:shadow-none"
+          className="relative z-10 inline-flex cursor-pointer rounded-[1.5rem] px-3 py-2 glass sm:px-4 sm:py-3"
         >
           <h1 className="font-display text-balance text-6xl leading-[0.95] text-foreground text-glow-blue sm:text-7xl md:text-[7.5rem] transition-colors hover:text-primary hover:drop-shadow-[0_0_28px_rgba(59,130,246,0.45)]">
             Farai Gabriel Mhlanga
@@ -157,7 +157,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
            onClick={() =>handleNameClick("beyond")}
-          className="mt-6 max-w-xl rounded-full bg-white/20 px-4 py-2 text-pretty text-base text-foreground/85 shadow-[0_10px_40px_rgba(255,255,255,0.32)] backdrop-blur-xl sm:text-lg transition-colors hover:text-primary hover:drop-shadow-[0_0_16px_rgba(59,130,246,0.35)] dark:border-white/10 dark:bg-transparent dark:shadow-none"
+          className="mt-6 max-w-xl rounded-full px-4 py-2 text-pretty text-base text-foreground/85 glass sm:text-lg transition-colors hover:text-primary hover:drop-shadow-[0_0_16px_rgba(59,130,246,0.35)]"
         >
           <span className="text-foreground/85">Engineering</span> systems - Fostering <span className="text-foreground/85">Creativity</span> - Living with <span className="text-foreground/85">Impact</span>
         </motion.p>
@@ -168,9 +168,9 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.6 }}
           className="mt-12 flex flex-col items-center gap-6 transform translate-y-40"
         >
-          <a
+         <a 
             href="#work"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] backdrop-blur-lg px-5 py-2.5 text-sm text-foreground/90 transition-all hover:border-primary/40 hover:bg-primary/5 hover:text-foreground"
+            className="group inline-flex items-center gap-2 rounded-full glass  px-5 py-2.5 text-sm text-foreground/90 transition-all hover:bg-primary/5 hover:text-foreground"
           >
             Explore the work
             <ArrowDown className="size-3.5 transition-transform group-hover:translate-y-0.5" />
