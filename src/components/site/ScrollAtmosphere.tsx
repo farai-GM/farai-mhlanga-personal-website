@@ -1,58 +1,54 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 
 /**
- * Page-wide background that gradually shifts from matte black into a
- * Daft Punk / Blade Runner cyberpunk wash as the user scrolls, peaking
- * around the Beyond Engineering section and fading into an afterglow.
- *
- * Rendered once at the page root as a fixed full-viewport layer so that
- * every section sits on top of a single continuous atmosphere instead of
- * its own isolated background.
+ * Page-wide background. The hero keeps the cinematic cyberpunk wash; from the
+ * About section onward the atmosphere is intentionally minimal so the content
+ * and cards are the focus.
  */
 export function ScrollAtmosphere() {
   const { scrollYProgress } = useScroll();
 
-  // Base wash — matte black -> deep indigo -> magenta/cyan night -> afterglow
+  // Base wash — dark hero -> matte black -> deep graphite -> near black
   const baseBg = useTransform(
     scrollYProgress,
-    [0, 0.25, 0.55, 0.8, 1],
+    [0, 0.15, 0.35, 0.65, 1],
     [
       "linear-gradient(180deg, oklch(0.13 0.005 260) 0%, oklch(0.14 0.02 275) 100%)",
-      "linear-gradient(180deg, oklch(0.15 0.05 285) 0%, oklch(0.16 0.09 305) 100%)",
-      "linear-gradient(180deg, oklch(0.17 0.12 320) 0%, oklch(0.15 0.14 295) 100%)",
-      "linear-gradient(180deg, oklch(0.15 0.10 305) 0%, oklch(0.12 0.07 285) 100%)",
-      "linear-gradient(180deg, oklch(0.13 0.04 280) 0%, oklch(0.13 0.01 260) 100%)",
+      "linear-gradient(180deg, oklch(0.14 0.03 280) 0%, oklch(0.13 0.02 275) 100%)",
+      "linear-gradient(180deg, oklch(0.13 0.01 270) 0%, oklch(0.12 0.005 260) 100%)",
+      "linear-gradient(180deg, oklch(0.12 0.005 260) 0%, oklch(0.11 0.003 260) 100%)",
+      "linear-gradient(180deg, oklch(0.12 0.005 260) 0%, oklch(0.11 0.003 260) 100%)",
     ],
   );
 
-  // Neon glow opacity — quiet at the top, blazing by Beyond, soft fade after
+  // Neon glow peaks early in the hero, then almost disappears from About onward
   const neonOpacity = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.55, 0.75, 1],
-    [0.1, 0.45, 1, 0.85, 0.5],
+    [0, 0.12, 0.25, 0.55, 0.75, 1],
+    [0.1, 0.55, 0.15, 0.05, 0.03, 0.02],
   );
 
-  // Magenta sweep drifts down the page
+  // Magenta sweep drifts down the page but stays faint
   const magentaY = useTransform(scrollYProgress, [0, 1], ["-10%", "60%"]);
   // Cyan sweep drifts up
   const cyanY = useTransform(scrollYProgress, [0, 1], ["80%", "20%"]);
 
-  // Scanlines fade in with the cyberpunk peak
+  // Scanlines only really visible in the hero, then fade out
   const scanlineOpacity = useTransform(
     scrollYProgress,
-    [0, 0.35, 0.6, 0.85, 1],
-    [0.02, 0.1, 0.2, 0.15, 0.08],
+    [0, 0.2, 0.35, 0.6, 1],
+    [0.02, 0.16, 0.04, 0.01, 0.005],
   );
 
-  // Light-mode wash — cream, peach and light-brown warmth
+  // Light-mode wash — cream hero -> clean cream -> soft white, minimal blobs
   const lightBg = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.6, 1],
+    [0, 0.25, 0.5, 1],
     [
       "linear-gradient(180deg, #fdfaf5 0%, #f8efe2 100%)",
-      "linear-gradient(180deg, #f8ecdc 0%, #f2dcc4 100%)",
-      "linear-gradient(180deg, #f4dfc7 0%, #e9c9a6 100%)",
-      "linear-gradient(180deg, #f5e6d2 0%, #fdfaf5 100%)",
+      "linear-gradient(180deg, #fbf7f0 0%, #f7f0e5 100%)",
+      "linear-gradient(180deg, #faf6ee 0%, #f6ede0 100%)",
+      "linear-gradient(180deg, #faf6ee 0%, #f6ede0 100%)",
     ],
   );
   const lightBlobY1 = useTransform(scrollYProgress, [0, 1], ["-5%", "70%"]);
@@ -60,87 +56,75 @@ export function ScrollAtmosphere() {
 
   return (
     <>
-    {/* Light-mode atmosphere */}
-    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden dark:hidden">
-      <motion.div className="absolute inset-0" style={{ background: lightBg }} />
-      <motion.div
-        className="absolute left-[-15%] h-[90vh] w-[90vh] rounded-full opacity-60 blur-3xl"
-        style={{
-          top: lightBlobY1,
-          background:
-            "radial-gradient(circle, rgba(240, 190, 150, 0.55), transparent 65%)",
-        }}
-      />
-      <motion.div
-        className="absolute right-[-15%] h-[90vh] w-[90vh] rounded-full opacity-55 blur-3xl"
-        style={{
-          top: lightBlobY2,
-          background:
-            "radial-gradient(circle, rgba(210, 165, 125, 0.5), transparent 65%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 opacity-[0.35]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(120, 85, 60, 0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(120, 85, 60, 0.06) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-          maskImage:
-            "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse at center, black 30%, transparent 75%)",
-        }}
-      />
-    </div>
-
-    {/* Dark-mode cyberpunk atmosphere */}
-    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 hidden overflow-hidden dark:block">
-      {/* Base color wash */}
-      <motion.div className="absolute inset-0" style={{ background: baseBg }} />
-
-      {/* Neon radial sweeps — magenta + cyan */}
-      <motion.div
-        className="absolute inset-0"
-        style={{
-          opacity: neonOpacity,
-          background: "transparent",
-        }}
-      >
+      {/* Light-mode atmosphere */}
+      <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden dark:hidden">
+        <motion.div className="absolute inset-0" style={{ background: lightBg }} />
         <motion.div
-          className="absolute left-[-10%] h-[95vh] w-[95vh] rounded-full blur-3xl"
+          className="absolute left-[-15%] h-[90vh] w-[90vh] rounded-full blur-3xl"
           style={{
-            top: magentaY,
+            top: lightBlobY1,
             background:
-              "radial-gradient(circle, oklch(0.72 0.28 340 / 0.9), transparent 65%)",
+              "radial-gradient(circle, rgba(240, 190, 150, 0.22), transparent 65%)",
           }}
         />
         <motion.div
-          className="absolute right-[-10%] h-[95vh] w-[95vh] rounded-full blur-3xl"
+          className="absolute right-[-15%] h-[90vh] w-[90vh] rounded-full blur-3xl"
           style={{
-            top: cyanY,
+            top: lightBlobY2,
             background:
-              "radial-gradient(circle, oklch(0.86 0.16 200 / 0.8), transparent 65%)",
+              "radial-gradient(circle, rgba(210, 165, 125, 0.18), transparent 65%)",
           }}
         />
-        <div
-          className="absolute inset-x-0 top-1/2 h-[55vh] -translate-y-1/2 blur-3xl"
-          style={{
-            background:
-              "radial-gradient(ellipse at center, oklch(0.68 0.17 290 / 0.55), transparent 70%)",
-          }}
-        />
-      </motion.div>
+      </div>
 
-      {/* Scanlines layer */}
-      <motion.div
-        className="absolute inset-0 mix-blend-overlay"
-        style={{
-          opacity: scanlineOpacity,
-          backgroundImage:
-            "repeating-linear-gradient(0deg, oklch(1 0 0 / 0.7) 0px, oklch(1 0 0 / 0.7) 1px, transparent 1px, transparent 3px)",
-        }}
-      />
-    </div>
+      {/* Dark-mode cyberpunk atmosphere */}
+      <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 hidden overflow-hidden dark:block">
+        {/* Base color wash */}
+        <motion.div className="absolute inset-0" style={{ background: baseBg }} />
+
+        {/* Neon radial sweeps — strong at hero, quiet elsewhere */}
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            opacity: neonOpacity,
+            background: "transparent",
+          }}
+        >
+          <motion.div
+            className="absolute left-[-10%] h-[95vh] w-[95vh] rounded-full blur-3xl"
+            style={{
+              top: magentaY,
+              background:
+                "radial-gradient(circle, oklch(0.72 0.28 340 / 0.75), transparent 65%)",
+            }}
+          />
+          <motion.div
+            className="absolute right-[-10%] h-[95vh] w-[95vh] rounded-full blur-3xl"
+            style={{
+              top: cyanY,
+              background:
+                "radial-gradient(circle, oklch(0.86 0.16 200 / 0.65), transparent 65%)",
+            }}
+          />
+          <div
+            className="absolute inset-x-0 top-1/2 h-[55vh] -translate-y-1/2 blur-3xl"
+            style={{
+              background:
+                "radial-gradient(ellipse at center, oklch(0.68 0.17 290 / 0.45), transparent 70%)",
+            }}
+          />
+        </motion.div>
+
+        {/* Scanlines layer */}
+        <motion.div
+          className="absolute inset-0 mix-blend-overlay"
+          style={{
+            opacity: scanlineOpacity,
+            backgroundImage:
+              "repeating-linear-gradient(0deg, oklch(1 0 0 / 0.7) 0px, oklch(1 0 0 / 0.7) 1px, transparent 1px, transparent 3px)",
+          }}
+        />
+      </div>
     </>
   );
 }
