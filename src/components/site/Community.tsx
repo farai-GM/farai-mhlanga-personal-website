@@ -4,15 +4,6 @@ import { Reveal, SectionLabel } from "./Reveal";
 export function Community() {
   return (
     <section id="community" className="relative w-full overflow-hidden px-6 py-32 sm:py-40">
-      {/* Local accent glows — global ScrollAtmosphere supplies the base wash */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 opacity-40"
-        style={{
-          background:
-            "radial-gradient(ellipse at 80% 10%, oklch(0.72 0.28 340 / 0.20), transparent 55%), radial-gradient(ellipse at 10% 60%, oklch(0.78 0.13 65 / 0.18), transparent 55%)",
-        }}
-      />
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <SectionLabel>04 · Community</SectionLabel>

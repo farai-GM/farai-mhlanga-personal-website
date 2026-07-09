@@ -36,16 +36,6 @@ const panels = [
 export function Beyond() {
   return (
     <section id="beyond" className="relative w-full overflow-hidden px-6 py-32 sm:py-40">
-      {/* Local accent glows — the global ScrollAtmosphere supplies the wash */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 opacity-50"
-        style={{
-          background:
-            "radial-gradient(ellipse at 15% 20%, oklch(0.72 0.28 340 / 0.25), transparent 55%), radial-gradient(ellipse at 85% 70%, oklch(0.86 0.16 200 / 0.22), transparent 55%)",
-        }}
-      />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-grid bg-grid-fade opacity-30" aria-hidden />
       <div className="mx-auto max-w-6xl">
         <div className="max-w-2xl">
           <Reveal>
