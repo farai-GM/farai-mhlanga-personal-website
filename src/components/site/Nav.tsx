@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { useTheme } from "@/hooks/use-theme";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#work", label: "Work" },
-  { href: "#experience", label: "Experience" },
-  { href: "#beyond", label: "Beyond" },
-  { href: "#community", label: "Community" },
-  { href: "#contact", label: "Contact" },
+  { hash: "about", label: "About" },
+  { hash: "work", label: "Work" },
+  { hash: "experience", label: "Experience" },
+  { hash: "beyond", label: "Beyond" },
+  { hash: "community", label: "Community" },
+  { hash: "contact", label: "Contact" },
 ];
 
 export function Nav() {
@@ -35,23 +36,24 @@ export function Nav() {
           scrolled ? "glass" : "bg-transparent border-transparent"
         }`}
       >
-        <a
-          href="#top"
+        <Link
+          to="/"
           className="flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium tracking-tight text-foreground/90 hover:text-foreground"
           aria-label="Farai Mhlanga — home"
         >
           <span className="inline-block size-1.5 rounded-full bg-primary shadow-[0_0_12px_oklch(0.72_0.16_245)]" />
           <span className="font-mono text-xs uppercase tracking-[0.18em]">FM</span>
-        </a>
+        </Link>
         <div className="hidden items-center md:flex">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
+            <Link
+              key={l.hash}
+              to="/"
+              hash={l.hash}
               className="rounded-full  px-3 py-1.5 text-sm text-foreground transition-colors hover:text-foreground"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </div>
         <button
@@ -62,12 +64,13 @@ export function Nav() {
         >
           {theme === "dark" ? <Sun className="size-3.5" /> : <Moon className="size-3.5" />}
         </button>
-        <a
-          href="#contact"
+        <Link
+          to="/"
+          hash="contact"
           className="ml-1 rounded-full bg-foreground/95 px-4 py-1.5 text-xs font-medium text-background transition-all hover:bg-foreground"
         >
           Get in touch
-        </a>
+        </Link>
       </nav>
     </motion.header>
   );
