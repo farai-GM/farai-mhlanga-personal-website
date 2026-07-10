@@ -145,14 +145,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       </motion.article>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-2xl overflow-hidden border-white/10 bg-card/95 p-0 backdrop-blur">
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-hidden border-white/10 bg-card/95 p-0 backdrop-blur">
           <button
             type="button"
             onClick={goToDetail}
-            className="group/dialog block w-full cursor-pointer text-left"
+            className="group/dialog block h-full w-full cursor-pointer overflow-y-auto text-left"
             aria-label={`Open full page for ${project.title}`}
           >
-            <div className="relative aspect-[16/8] overflow-hidden">
+            <div className="relative aspect-[16/10] overflow-hidden">
               {project.video ? (
                 <video
                   src={project.video}
@@ -171,7 +171,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-card-foreground via-transparent to-transparent" />
             </div>
-            <div className="space-y-4 p-6 sm:p-8">
+            <div className="space-y-3 p-5 sm:space-y-4 sm:p-8">
               <DialogHeader className="space-y-2">
                 <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                   <span>{project.year}</span>
