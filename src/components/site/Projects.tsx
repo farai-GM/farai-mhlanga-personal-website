@@ -145,14 +145,14 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       </motion.article>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-2xl max-h-[85vh] overflow-hidden border-white/10 bg-card/95 p-0 backdrop-blur">
+        <DialogContent className="flex max-h-[80vh] w-[calc(100%-2rem)] max-w-2xl flex-col overflow-hidden border-white/10 bg-card/95 p-0 backdrop-blur sm:w-full">
           <button
             type="button"
             onClick={goToDetail}
-            className="group/dialog block h-full w-full cursor-pointer overflow-y-auto text-left"
+            className="group/dialog flex min-h-0 flex-1 flex-col overflow-y-auto text-left"
             aria-label={`Open full page for ${project.title}`}
           >
-            <div className="relative aspect-[16/10] overflow-hidden">
+            <div className="relative max-h-[32vh] w-full shrink-0 overflow-hidden">
               {project.video ? (
                 <video
                   src={project.video}
@@ -160,13 +160,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                   muted
                   loop
                   playsInline
-                  className="size-full object-cover"
+                  className="h-full w-full object-cover"
                 />
               ) : (
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="size-full object-cover opacity-80 transition-transform duration-700 group-hover/dialog:scale-[1.03]"
+                  className="h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover/dialog:scale-[1.03]"
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-card-foreground via-transparent to-transparent" />
