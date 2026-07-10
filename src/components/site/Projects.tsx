@@ -145,33 +145,35 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       </motion.article>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-2xl overflow-hidden border-white/10 bg-card/95 p-0 backdrop-blur">
+        <DialogContent className="flex max-h-[75vh] w-[calc(100%-2rem)] max-w-2xl flex-col overflow-hidden border-white/10 bg-card/95 p-0 backdrop-blur sm:w-full">
           <button
             type="button"
             onClick={goToDetail}
-            className="group/dialog block w-full cursor-pointer text-left"
+            className="group/dialog flex min-h-0 flex-1 flex-col overflow-y-auto text-left"
             aria-label={`Open full page for ${project.title}`}
           >
-            <div className="relative aspect-[16/8] overflow-hidden">
+            <div className="relative max-h-[28vh] w-full shrink-0 overflow-hidden">
               {project.video ? (
                 <video
                   src={project.video}
+                  poster={project.image}
                   autoPlay
                   muted
                   loop
                   playsInline
-                  className="size-full object-cover"
+                  preload="metadata"
+                  className="h-full w-full object-cover"
                 />
               ) : (
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="size-full object-cover opacity-80 transition-transform duration-700 group-hover/dialog:scale-[1.03]"
+                  className="h-full w-full object-cover opacity-80 transition-transform duration-700 group-hover/dialog:scale-[1.03]"
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-card-foreground via-transparent to-transparent" />
             </div>
-            <div className="space-y-4 p-6 sm:p-8">
+            <div className="space-y-3 p-5 sm:space-y-4 sm:p-8">
               <DialogHeader className="space-y-2">
                 <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                   <span>{project.year}</span>
