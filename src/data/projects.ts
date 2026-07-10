@@ -2,6 +2,7 @@ import projectVoice from "@/assets/Voice_Controlled_MK.jpeg";
 import projectWebsite from "@/assets/Screenshot 2026-07-01 212452.png";
 import projectMarv from "@/assets/Robot_car.png";
 import FPGA from "@/assets/FPGA.jpeg";
+import marvVideo from "@/assets/Multi_colour_automnoumous_line_follwoign_robot.mp4";
 
 
 export type Project = {
@@ -11,6 +12,7 @@ export type Project = {
   summary: string;
   stack: string[];
   image: string;
+  video?: string;
   context: string;
   overview: string;
   details: string[];
@@ -69,6 +71,7 @@ export const projects: Project[] = [
       "Multicolor line following robot designed and built for autonomous navigation from first principles.",
     stack: ["MPLABX", "PIC18", "Fusion 360", "LTSpice", "Assembly"],
     image: projectMarv,
+    video: marvVideo,
     overview:
       "An autonomous line-following race car built from the chassis up, combining custom electronics, mechanical design and hand-written assembly firmware on a PIC18.",
     details: [
