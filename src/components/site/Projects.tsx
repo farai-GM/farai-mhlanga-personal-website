@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { useNavigate } from "@tanstack/react-router";
@@ -43,6 +43,22 @@ export function Projects() {
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const hoverVideoRef = useRef<HTMLVideoElement | null>(null);
+
+  const handleEnter = () => {
+    const v = hoverVideoRef.current;
+    if (v) {
+      v.currentTime = 0;
+      void v.play().catch(() => {});
+    }
+  };
+  const handleLeave = () => {
+    const v = hoverVideoRef.current;
+    if (v) {
+      v.pause();
+      v.currentTime = 0;
+    }
+  };
 
   const goToDetail = () => {
     setOpen(false);
@@ -55,6 +71,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         whileHover={{ y: -4 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         onClick={() => setOpen(true)}
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
         role="button"
         tabIndex={0}
         onKeyDown={(e) => {
@@ -74,6 +92,17 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             loading="lazy"
             className="size-full object-cover opacity-80 transition-all duration-[1200ms] group-hover:scale-[1.04] group-hover:opacity-100"
           />
+          {project.video && (
+            <video
+              ref={hoverVideoRef}
+              src={project.video}
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="pointer-events-none absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-card-foreground via-transparent to-transparent" />
           <div className="absolute left-4 top-4 flex items-center gap-2">
             <span className="font-mono rounded text-[10px] uppercase ml-2 tracking-[0.22em] text-black backdrop-blur-sm bg-white/30">
@@ -124,11 +153,22 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             aria-label={`Open full page for ${project.title}`}
           >
             <div className="relative aspect-[16/8] overflow-hidden">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="size-full object-cover opacity-80 transition-transform duration-700 group-hover/dialog:scale-[1.03]"
-              />
+              {project.video ? (
+                <video
+                  src={project.video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="size-full object-cover"
+                />
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="size-full object-cover opacity-80 transition-transform duration-700 group-hover/dialog:scale-[1.03]"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-card-foreground via-transparent to-transparent" />
             </div>
             <div className="space-y-4 p-6 sm:p-8">
