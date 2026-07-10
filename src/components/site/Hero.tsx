@@ -156,7 +156,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
-           onClick={() =>handleNameClick("beyond")}
+           onClick={() =>handleNameClick("work")}
           className="mt-6 max-w-xl rounded-full px-4 py-2 text-pretty text-base text-foreground/85 glass sm:text-lg transition-colors hover:text-primary hover:drop-shadow-[0_0_16px_rgba(59,130,246,0.35)]"
         >
           <span className="text-foreground/85">Engineering</span> systems - Fostering <span className="text-foreground/85">Creativity</span> - Living with <span className="text-foreground/85">Impact</span>

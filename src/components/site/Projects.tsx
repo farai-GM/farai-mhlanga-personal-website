@@ -15,7 +15,7 @@ import {
 export function Projects() {
   return (
     <section id="work" className="relative w-full px-6 py-20 sm:py-32 md:py-40">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-5xl">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
             <Reveal>
@@ -30,7 +30,7 @@ export function Projects() {
          
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 sm:mt-16 md:gap-8">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 sm:mt-12 md:gap-6">
           {projects.map((p, i) => (
             <ProjectCard key={p.title} project={p} index={i} />
           ))}
@@ -65,7 +65,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         }}
         className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/10 bg-card/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
       >
-        <div className="relative aspect-[16/10] overflow-hidden">
+        <div className="relative aspect-[16/11] overflow-hidden">
           <motion.img
             src={project.image}
             alt={project.title}
@@ -74,20 +74,20 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             loading="lazy"
             className="size-full object-cover opacity-80 transition-all duration-[1200ms] group-hover:scale-[1.04] group-hover:opacity-100"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-card-foreground via-transparent to-transparent" />
           <div className="absolute left-4 top-4 flex items-center gap-2">
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-black backdrop-blur-sm">
+            <span className="font-mono rounded text-[10px] uppercase ml-2 tracking-[0.22em] text-black backdrop-blur-sm bg-white/30">
               {project.year}
             </span>
             <span className="size-1 rounded-full bg-primary" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-black backdrop-blur-sm">
+            <span className="font-mono rounded text-[10px] uppercase ml-2 tracking-[0.22em] text-black backdrop-blur-sm bg-white/30">
               {project.context}
             </span>
           </div>
           <ArrowUpRight className="absolute right-4 top-4 size-4 text-foreground/40 transition-all group-hover:right-3 group-hover:top-3 group-hover:text-primary" />
         </div>
-        <div className="flex flex-1 flex-col gap-3 p-5 sm:gap-4 sm:p-8">
-          <h3 className="font-display text-xl leading-tight text-foreground sm:text-2xl md:text-3xl">
+        <div className="flex flex-1 flex-col gap-2 p-4 sm:gap-3 sm:p-6">
+          <h3 className="font-display text-lg leading-tight text-foreground sm:text-xl md:text-2xl">
             {project.title}
           </h3>
           <p className="text-pretty text-sm leading-relaxed text-muted-foreground">
@@ -129,7 +129,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 alt={project.title}
                 className="size-full object-cover opacity-80 transition-transform duration-700 group-hover/dialog:scale-[1.03]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-card-foreground via-transparent to-transparent" />
             </div>
             <div className="space-y-4 p-6 sm:p-8">
               <DialogHeader className="space-y-2">
