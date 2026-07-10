@@ -75,6 +75,19 @@ function ProjectDetail() {
           />
         </div>
 
+        {project.video && (
+          <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-black">
+            <video
+              src={project.video}
+              controls
+              playsInline
+              preload="metadata"
+              poster={project.image}
+              className="aspect-[16/9] w-full object-cover"
+            />
+          </div>
+        )}
+
         <section className="mt-14 grid gap-10 md:grid-cols-[1fr_260px]">
           <div className="space-y-6">
             <h2 className="font-display text-2xl text-foreground">What was built</h2>
