@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Sun } from "lucide-react";
 import heroAtmosphere from "@/assets/hero-atmosphere.jpg";
 import heroReveal from "@/assets/Hero Image BG.png";
 import { useTheme } from "@/hooks/use-theme";
@@ -12,7 +12,7 @@ export function Hero() {
   const posRef = useRef<{ x: number; y: number } | null>(null);
   const ticking = useRef(false);
   const REVEAL_RADIUS = 30; // px — adjust to change circular reveal size
-  const { theme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const isLightMode = theme === "light";
   const handleNameClick = (targetID: string) => {
     document.getElementById(targetID)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -162,6 +162,21 @@ export function Hero() {
           <span className="text-foreground/85">Engineering</span> systems - Fostering <span className="text-foreground/85">Creativity</span> - Living with <span className="text-foreground/85">Impact</span>
         </motion.p>
 
+        {theme === "dark" && (
+          <motion.button
+            type="button"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            onClick={toggleTheme}
+            aria-label="Switch to light mode to reveal the hero image"
+            className="group/hint mt-6 inline-flex cursor-pointer items-center gap-2 rounded-full glass px-4 py-2 text-xs text-foreground/80 transition-all hover:bg-primary/5 hover:text-foreground"
+          >
+            <Sun className="size-3.5 text-accent transition-transform duration-500 group-hover/hint:rotate-90" />
+            <span>Switch to light mode to see beneath the surface</span>
+          </motion.button>
+        )}
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -175,7 +190,6 @@ export function Hero() {
             Explore the work
             <ArrowDown className="size-3.5 transition-transform group-hover:translate-y-0.5" />
           </a>
-
         </motion.div>
       </motion.div>
 
