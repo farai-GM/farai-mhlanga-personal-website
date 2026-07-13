@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Sun } from "lucide-react";
 import heroAtmosphere from "@/assets/hero-atmosphere.jpg";
 import heroReveal from "@/assets/Hero Image BG.png";
 import { useTheme } from "@/hooks/use-theme";
