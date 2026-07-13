@@ -169,7 +169,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             onClick={toggleTheme}
-            className="group/hint mt-6 inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs text-foreground/80 transition-all hover:bg-primary/5 hover:text-foreground"
+            aria-label="Switch to light mode to reveal the hero image"
+            className="group/hint mt-6 inline-flex cursor-pointer items-center gap-2 rounded-full glass px-4 py-2 text-xs text-foreground/80 transition-all hover:bg-primary/5 hover:text-foreground"
           >
             <Sun className="size-3.5 text-accent transition-transform duration-500 group-hover/hint:rotate-90" />
             <span>Switch to light mode to see beneath the surface</span>
