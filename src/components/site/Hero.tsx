@@ -176,6 +176,19 @@ export function Hero() {
             <ArrowDown className="size-3.5 transition-transform group-hover:translate-y-0.5" />
           </a>
 
+          {theme === "dark" && (
+            <motion.button
+              type="button"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.85 }}
+              onClick={toggleTheme}
+              className="group/hint inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs text-foreground/80 transition-all hover:bg-primary/5 hover:text-foreground"
+            >
+              <Sun className="size-3.5 text-accent transition-transform duration-500 group-hover/hint:rotate-90" />
+              <span>Switch to light mode to see beneath the surface</span>
+            </motion.button>
+          )}
         </motion.div>
       </motion.div>
 
