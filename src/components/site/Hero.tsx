@@ -12,7 +12,7 @@ export function Hero() {
   const posRef = useRef<{ x: number; y: number } | null>(null);
   const ticking = useRef(false);
   const REVEAL_RADIUS = 30; // px — adjust to change circular reveal size
-  const { theme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const isLightMode = theme === "light";
   const handleNameClick = (targetID: string) => {
     document.getElementById(targetID)?.scrollIntoView({ behavior: "smooth", block: "start" });
