@@ -146,9 +146,9 @@ export function Hero() {
           whileHover={{ y: -4, scale: 1.005, transition: { duration: 0.2 } }}
           whileTap={{ y: -2, scale: 0.995, transition: { duration: 0.1 } }}
           onClick={() =>handleNameClick("about")}
-          className="relative z-10 inline-flex cursor-pointer rounded-[1.5rem] px-3 py-2 glass sm:px-4 sm:py-3"
+          className="hero-title-shell relative z-10 inline-flex cursor-pointer rounded-[1.5rem] px-3 py-2 sm:px-4 sm:py-3"
         >
-          <h1 className="font-display text-balance text-6xl leading-[0.95] text-foreground text-glow-blue sm:text-7xl md:text-[7.5rem] transition-colors hover:text-primary hover:drop-shadow-[0_0_28px_rgba(59,130,246,0.45)]">
+          <h1 className="hero-heading-glow font-display text-balance text-6xl leading-[0.95] text-foreground sm:text-7xl md:text-[7.5rem] transition-colors hover:text-primary">
             Farai Gabriel Mhlanga
           </h1>
         </motion.div>
