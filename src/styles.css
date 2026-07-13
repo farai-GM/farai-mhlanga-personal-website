@@ -209,31 +209,6 @@
   .text-glow-blue {
     text-shadow: 0 0 40px oklch(0.72 0.16 245 / 0.45);
   }
-  .hero-title-shell {
-    background:
-      linear-gradient(135deg, oklch(1 0 0 / 0.16), oklch(0.72 0.16 245 / 0.08)),
-      oklch(0.1 0.01 260 / 0.28);
-    border: 1px solid oklch(1 0 0 / 0.24);
-    box-shadow:
-      0 0 0 1px oklch(0.72 0.16 245 / 0.16),
-      0 18px 60px oklch(0 0 0 / 0.22),
-      inset 0 1px 0 oklch(1 0 0 / 0.18);
-  }
-  .hero-heading-glow {
-    text-shadow:
-      0 1px 14px oklch(0 0 0 / 0.42),
-      0 0 26px oklch(0.72 0.16 245 / 0.62),
-      0 0 70px oklch(0.72 0.16 245 / 0.38),
-      0 0 110px oklch(0.78 0.13 65 / 0.28);
-    filter: drop-shadow(0 0 20px oklch(0.72 0.16 245 / 0.22));
-  }
-  .hero-heading-glow:hover {
-    text-shadow:
-      0 1px 16px oklch(0 0 0 / 0.5),
-      0 0 34px oklch(0.72 0.16 245 / 0.78),
-      0 0 90px oklch(0.72 0.16 245 / 0.48),
-      0 0 130px oklch(0.78 0.13 65 / 0.34);
-  }
 /* @layer components { */
   .glass {
     background: oklch(81.363% 0.01344 266.719 / 0.086);
