@@ -176,20 +176,44 @@ export function Hero() {
           <span className="text-foreground/85">Engineering</span> systems - Fostering <span className="text-foreground/85">Creativity</span> - Living with <span className="text-foreground/85">Impact</span>
         </motion.p>
 
-        {theme === "dark" && (
-          <motion.button
-            type="button"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            onClick={toggleTheme}
-            aria-label="Switch to light mode to reveal the hero image"
-            className="group/hint mt-6 inline-flex cursor-pointer items-center gap-2 rounded-full glass px-4 py-2 text-xs text-foreground/80 transition-all hover:bg-primary/5 hover:text-foreground"
-          >
-            <Sun className="size-3.5 text-accent transition-transform duration-500 group-hover/hint:rotate-90" />
-            <span>Switch to light mode to see beneath the surface</span>
-          </motion.button>
-        )}
+        <AnimatePresence>
+          {showHint && (
+            <motion.div
+              initial={{ opacity: 0, y: 16, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 12, scale: 0.96 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute bottom-8 left-1/2 z-20 w-[calc(100%-2rem)] max-w-sm -translate-x-1/2"
+            >
+              <div className="glass relative flex items-start gap-3 rounded-2xl border border-primary/10 bg-background/70 p-4 shadow-2xl shadow-primary/10">
+                <button
+                  type="button"
+                  onClick={toggleTheme}
+                  aria-label="Switch to light mode to reveal the hero image"
+                  className="group/hint inline-flex shrink-0 cursor-pointer items-center gap-2 rounded-full px-3 py-1.5 text-xs text-foreground/80 transition-all hover:bg-primary/5 hover:text-foreground"
+                >
+                  <Sun className="size-3.5 text-accent transition-transform duration-500 group-hover/hint:rotate-90" />
+                  <span>Switch to light mode to see beneath the surface</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowHint(false);
+                    try {
+                      sessionStorage.setItem("heroThemeHint", "dismissed");
+                    } catch {
+                      /* ignore */
+                    }
+                  }}
+                  aria-label="Dismiss hint"
+                  className="ml-auto inline-flex shrink-0 cursor-pointer items-center justify-center rounded-full p-1 text-foreground/60 transition-colors hover:bg-primary/10 hover:text-foreground"
+                >
+                  <X className="size-3.5" />
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <motion.div
           initial={{ opacity: 0 }}
