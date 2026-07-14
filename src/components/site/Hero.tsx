@@ -199,7 +199,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.96 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute bottom-8 left-1/2 z-20 w-[calc(100%-2rem)] max-w-sm -translate-x-1/2"
+            className="absolute bottom-20 left-1/2 z-20 w-[calc(100%-2rem)] max-w-sm -translate-x-1/2"
           >
             <div className="glass relative flex items-center gap-3 rounded-2xl border border-primary/10 bg-background/70 p-4 shadow-2xl shadow-primary/10">
               <button
