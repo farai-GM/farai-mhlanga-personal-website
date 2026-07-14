@@ -14,6 +14,20 @@ export function Hero() {
   const REVEAL_RADIUS = 30; // px — adjust to change circular reveal size
   const { theme, toggleTheme } = useTheme();
   const isLightMode = theme === "light";
+  const [showHint, setShowHint] = useState(false);
+
+  useEffect(() => {
+    if (theme !== "dark") {
+      setShowHint(false);
+      return;
+    }
+    if (typeof sessionStorage !== "undefined" && sessionStorage.getItem("heroThemeHint") === "dismissed") {
+      return;
+    }
+    const t = setTimeout(() => setShowHint(true), 1400);
+    return () => clearTimeout(t);
+  }, [theme]);
+
   const handleNameClick = (targetID: string) => {
     document.getElementById(targetID)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
