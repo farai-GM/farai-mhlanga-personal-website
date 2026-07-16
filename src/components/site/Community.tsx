@@ -58,9 +58,12 @@ As a Christian society, IGNITE also partnered with local churches to expand our 
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-background/20  to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
-                  <p className="rounded-lg max-w-sm font-mono text-sm leading-snug text-foreground/95 sm:text-xs">
-                    "With great power comes great responsibility."  Uncle Ben
+                  <p className="rounded-lg max-w-xs font-mono text-sm leading-snug text-foreground/95 sm:text-xs">
+                    "With great power comes great responsibility." Uncle Ben
                   </p>
+                  
+
+
                   <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/95">
                     UP · 2023
                   </span>
