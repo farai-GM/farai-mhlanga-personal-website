@@ -6,28 +6,28 @@ import { Reveal, SectionLabel } from "./Reveal";
 const panels = [
   {
     image: piano,
-    label: "Music Quarter",
-    title: "Music as architecture.",
+    label: "Music",
+    title: "How Music Meets Engineering.",
     body:
-      "Pianist and Music Director at Celebration Church Pretoria. I think in voicings, dynamics, and silence — the same way I think in systems.",
-    meta: "Band Director · 2024—",
+     "As a Pianist and Music Director at Celebration Church Pretoria, I believe music has the unique ability to communicate what words cannot. My passion has led me to learn multiple instruments and develop a strong understanding of sound engineering in both live and studio environments. By combining this with my background in digital signal processing, I enjoy exploring the engineering behind tools such as equalization, gain staging, and compression to create more immersive and expressive musical experiences.",
+    meta: "Band Director · 2024 - Current",
     accent: "from-[oklch(0.86_0.16_200/0.55)] to-transparent",
   },
   {
     image: film,
-    label: "Cinema Quarter",
-    title: "Stories that light the dark.",
+    label: "Cinema",
+    title: "The Art of Storytelling.",
     body:
-      "Cinema and anime shape how I see craft — frame composition, restraint, the discipline of mood. Blade Runner 2049, Interstellar, and quiet anime atmospheres are constant references.",
-    meta: "Enthusiast",
+      "I have a deep appreciation for visual storytelling through film and animation. I often find myself looking beyond the plot, exploring how cinematography, sound design, technology, and visual direction bring stories to life. From the innovative use of the Halo rig in Sinners to the seamless blend of 2D and 3D animation in Attack on Titan, I'm fascinated by the creative and technical decisions behind every frame. Innovative technology is exciting, and compelling stories are even better, but the greatest films are the ones that make you forget both and simply find yourself enjoying the experience.",
+    meta: "Enthusiast  · Birthdate - Current",
     accent: "from-[oklch(0.72_0.28_340/0.55)] to-transparent",
   },
   {
     image: faith,
-    label: "Cathedral Quarter",
+    label: "Church",
     title: "The long quiet questions.",
     body:
-      "Faith is the quiet architecture beneath the work. As Music Director at Celebration Church — and in the way I led IGNITE Society — service, stewardship, and integrity became engineering disciplines of their own.",
+      "My faith is both my foundation and my compass. It has shaped who I am and what I believe truly matters. I believe everyone should wrestle with life's difficult questions: What is my purpose? What impact do I want to leave? Even if those questions aren't fully answered, I believe we are better for having asked them. Every project, every system, and life itself will present challenges, and I believe more often than not it is not the challenge that determines the outcome, but the substance of the person who faces it. As Romans 5:3–4 (NASB) says, 'And not only this, but we also exult in our tribulations, knowing that tribulation brings about perseverance; and perserverance, proven character; and proven character, hope;'",
     meta: "Christian · Always",
     accent: "from-[oklch(0.78_0.13_65/0.55)] to-transparent",
   },
@@ -48,16 +48,15 @@ export function Beyond() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-6 text-base text-muted-foreground sm:text-lg">
-              Three quarters of a city I keep returning to — music, cinema, and faith.
-              Each one shapes the engineer.
+              Besides the technical side of engineering, I have a deep appreciation for the arts, storytelling, and faith. These interests shape my perspective, inspire creativity, and remind me that engineering is not just about building systems, but also about understanding the human experience.
             </p>
           </Reveal>
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        <div className="mt-16 grid gap-8 md:grid-cols-3 items-stretch">
           {panels.map((p, i) => (
             <Reveal key={p.label} delay={i * 0.08}>
-              <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-card/30 shadow-[0_0_60px_-20px_oklch(0.72_0.28_340/0.25)] transition-shadow duration-700 hover:shadow-[0_0_80px_-15px_oklch(0.72_0.28_340/0.5)]">
+              <article className="group relative flex h-full min-h-[28rem] flex-col overflow-hidden rounded-2xl border border-white/10 bg-card/30 shadow-[0_0_60px_-20px_oklch(0.72_0.28_340/0.25)] transition-shadow duration-700 hover:shadow-[0_0_80px_-15px_oklch(0.72_0.28_340/0.5)]">
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <img
                     src={p.image}
