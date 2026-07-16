@@ -66,16 +66,7 @@ function ProjectDetail() {
             {project.overview}
           </p>
         </header>
-
-        <div className="mt-10 overflow-hidden rounded-2xl border border-white/10">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="aspect-[16/9] w-full object-cover"
-          />
-        </div>
-
-        {project.video && (
+        {project.video ? (
           <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-black">
             <video
               src={project.video}
@@ -86,19 +77,26 @@ function ProjectDetail() {
               className="aspect-[16/9] w-full object-cover"
             />
           </div>
+        ) : (
+          <div className="mt-10 overflow-hidden rounded-2xl border border-white/10">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="aspect-[16/9] w-full object-cover"
+            />
+          </div>
         )}
 
         <section className="mt-14 grid gap-10 md:grid-cols-[1fr_260px]">
           <div className="space-y-6">
             <h2 className="font-display text-2xl text-foreground">What was built</h2>
-            <ul className="space-y-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+            <div className="space-y-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
               {project.details.map((d) => (
-                <li key={d} className="flex gap-3">
-                  <span className="mt-2 size-1 shrink-0 rounded-full bg-primary" />
-                  <span>{d}</span>
-                </li>
+                <p key={d} className="whitespace-pre-line">
+                  {d}
+                </p>
               ))}
-            </ul>
+            </div>
           </div>
 
           <aside className="space-y-6 rounded-2xl border border-white/10 bg-card/40 p-6">
