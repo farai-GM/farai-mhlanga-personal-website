@@ -2,21 +2,22 @@ import { Reveal, SectionLabel } from "./Reveal";
 
 const roles = [
   {
-    org: "Cheery Robot Academy",
-    title: "Tutor & Coding Mentor",
-    period: "2022 — Present",
-    description:
-      "I teach programming and robotics fundamentals to students of varying ages, translating complex ideas into approachable lessons. I design practical exercises, debug code alongside learners, and help them build confidence in problem-solving — the same patience and clarity I bring to engineering teams.",
-    highlights: ["Python & Scratch tutoring", "Robotics workshops", "Curriculum support"],
-  },
-  {
     org: "Sevenly Travel",
     title: "Software Developer",
-    period: "2023 — Present",
+    period: "2025 — Present",
     description:
-      "Part-time software developer building and maintaining features for a travel platform. I work across the stack, from backend services and database design to frontend interfaces, shipping reliable code that helps real users plan trips.",
-    highlights: ["Full-stack feature work", "API design & integration", "Production support"],
+      "I voluntarily work part time at Sevenly Travel. I develop and maintain software for a travel technology platform, working across the full stack with React, Node.js, Express.js, MongoDB, and AWS. I collaborate within an Agile team using GitHub, GitLab, and Jira to build scalable features, integrate cloud services, and deliver reliable solutions for real-world users. To improve development efficiency, we leverage AI-assisted tools such as GitHub Copilot and low-code AI platforms like Lovable to rapidly prototype, automate repetitive tasks, and accelerate software delivery.",
+    highlights: ["React Native","Node.js","MongoDB", "AWS","Full-stack feature work", "API design & integration", "AI-assisted development"],
   },
+  {
+    org: "Cheery Robot Academy",
+    title: "Tutor & Coding Mentor",
+    period: "2025 — Present",
+    description:
+      "I teach programming and game development fundamentals to students of varying ages, translating complex concepts into engaging, approachable lessons. Cheery Robot Academy emphasizes project-based learning through hands-on game development, with tutoring centered around Scratch and Roblox Studio. Through one-on-one sessions, I guide students in building games and interactive experiences while developing their problem-solving, critical thinking, and programming skills.",
+    highlights: ["Lua", "Roblox Studio", "Curriculum support"],
+  },
+  
 ];
 
 export function Experience() {
