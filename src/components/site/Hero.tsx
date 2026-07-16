@@ -24,7 +24,7 @@ export function Hero() {
     if (typeof sessionStorage !== "undefined" && sessionStorage.getItem("heroThemeHint") === "dismissed") {
       return;
     }
-    const t = setTimeout(() => setShowHint(true), 1400);
+    const t = setTimeout(() => setShowHint(true), 3000);
     return () => clearTimeout(t);
   }, [theme]);
 
@@ -138,8 +138,8 @@ export function Hero() {
       </div>
 
       <motion.div
-        style={{ opacity }}
-        className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 text-center"
+        // style={{ opacity }}
+        className="relative mx-auto flex max-w-5xl flex-col items-center px-6 text-center"
       >
         <motion.div
           initial={{ opacity: 0, y: 8 }}
@@ -160,9 +160,9 @@ export function Hero() {
           whileHover={{ y: -4, scale: 1.005, transition: { duration: 0.2 } }}
           whileTap={{ y: -2, scale: 0.995, transition: { duration: 0.1 } }}
           onClick={() =>handleNameClick("about")}
-          className="relative z-10 inline-flex cursor-pointer rounded-[1.5rem] px-3 py-2 glass sm:px-4 sm:py-3"
+          className="group relative z-10 inline-flex cursor-pointer rounded-[1.5rem] px-3 py-2 glass sm:px-4 sm:py-3"
         >
-          <h1 className="font-display text-balance text-6xl leading-[0.95] text-foreground text-glow-blue sm:text-7xl md:text-[7.5rem] transition-colors hover:text-primary hover:drop-shadow-[0_0_28px_rgba(59,130,246,0.45)]">
+          <h1 className="font-display text-balance text-6xl leading-[0.95] text-foreground  sm:text-7xl md:text-[7.5rem] transition-colors group-hover:text-primary group-hover:drop-shadow-[0_0_28px_rgba(59,130,246,0.45)]">
             Farai Gabriel Mhlanga
           </h1>
         </motion.div>
@@ -198,7 +198,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 16, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.96 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
             className="absolute bottom-20 left-1/2 z-20 w-[calc(100%-2rem)] max-w-sm -translate-x-1/2"
           >
             <div className="glass relative flex items-center gap-3 rounded-2xl border border-primary/10 bg-background/70 p-4 shadow-2xl shadow-primary/10">
