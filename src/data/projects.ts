@@ -69,7 +69,7 @@ export const projects: Project[] = [
       "A custom FPGA-based memory subsystem implementing synchronous random access memory (RAM), a UART communication controller, and a host interface entirely from first principles on a DE0-Nano FPGA.",
     stack: ["Quartus", "UART Bridge", "Verilog", "Python"],
     image: "/images/FPGA.jpeg",
-    video: "/videos/FPGA_Demo_Video.mp4",
+    video: "/videos/FPGA Demo Video.mp4",
     overview:
       "A from-first-principles FPGA design that exposes on-chip memory over UART, providing a real-time bridge for host-driven signal processing experiments.",
     details: [
