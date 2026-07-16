@@ -182,13 +182,13 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.6 }}
           className="mt-12 flex flex-col items-center gap-6 transform translate-y-40"
         >
-         <a 
+         {/* <a 
             href="#work"
             className="group inline-flex items-center gap-2 rounded-full glass  px-5 py-2.5 text-sm text-foreground/90 transition-all hover:bg-primary/5 hover:text-foreground"
           >
             Explore the work
             <ArrowDown className="size-3.5 transition-transform group-hover:translate-y-0.5" />
-          </a>
+          </a> */}
         </motion.div>
       </motion.div>
 
