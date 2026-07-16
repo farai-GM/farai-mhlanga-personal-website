@@ -3,8 +3,8 @@ import { Reveal, SectionLabel } from "./Reveal";
 
 const links = [
   { label: "Email", href: "mailto:farai.g.mhlanga@gmail.com", value: "farai.g.mhlanga@gmail.com" },
-  { label: "Phone Number", href: "tel:0724992384", value: "0724992384" },
-  { label: "GitHub", href: "https://github.com/", value: "github.com/faraimhlanga" },// put git repo for this website
+  { label: "Phone", href: "tel:+27724992384",  WhatsUpHref: "https://wa.me", value: "+27 72-499-2384" }
+  // { label: "GitHub", href: "https://github.com/", value: "github.com/faraimhlanga" },// put git repo for this website
 ];
 
 export function Contact() {
@@ -44,7 +44,7 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <ul className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border/60 sm:grid-cols-3">
+          <ul className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border/60 sm:grid-cols-2">
             {links.map((l) => (
               <li key={l.label} className="bg-muted/70 dark:bg-card/60">
                 <a
