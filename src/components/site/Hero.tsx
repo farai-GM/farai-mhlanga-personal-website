@@ -201,12 +201,12 @@ export function Hero() {
             transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
             className="absolute bottom-20 left-1/2 z-20 w-[calc(100%-2rem)] max-w-sm -translate-x-1/2"
           >
-            <div className="glass relative flex items-center gap-3 rounded-2xl border border-primary/10 bg-background/70 p-4 shadow-2xl shadow-primary/10">
+            <div className="glass relative rounded-2xl border border-primary/10 bg-background/70 p-4 pr-12 shadow-2xl shadow-primary/10">
               <button
                 type="button"
                 onClick={toggleTheme}
                 aria-label="Switch to light mode to reveal the hero image"
-                className="group/hint inline-flex shrink-0 cursor-pointer items-center gap-2 rounded-full px-3 py-1.5 text-left text-xs text-foreground/80 transition-all hover:bg-primary/5 hover:text-foreground"
+                className="group/hint inline-flex w-full cursor-pointer items-center gap-2 rounded-full px-3 py-1.5 text-left text-xs text-foreground/80 transition-all hover:bg-primary/5 hover:text-foreground"
               >
                 <Sun className="size-3.5 text-accent transition-transform duration-500 group-hover/hint:rotate-90" />
                 <span>Switch to light mode to see beneath the surface</span>
@@ -222,7 +222,7 @@ export function Hero() {
                   }
                 }}
                 aria-label="Dismiss hint"
-                className="ml-auto inline-flex shrink-0 cursor-pointer items-center justify-center rounded-full p-1 text-foreground/60 transition-colors hover:bg-primary/10 hover:text-foreground"
+                className="absolute right-3 top-3 inline-flex shrink-0 cursor-pointer items-center justify-center rounded-full p-1 text-foreground/60 transition-colors hover:bg-primary/10 hover:text-foreground"
               >
                 <X className="size-3.5" />
               </button>
