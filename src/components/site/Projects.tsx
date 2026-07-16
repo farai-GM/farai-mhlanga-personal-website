@@ -19,7 +19,7 @@ export function Projects() {
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
             <Reveal>
-              <SectionLabel>02 · Selected Work</SectionLabel>
+              <SectionLabel>02 · Selected Projects</SectionLabel>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-6 font-display text-4xl leading-[1.05] text-foreground sm:text-5xl md:text-6xl">
@@ -30,7 +30,7 @@ export function Projects() {
          
         </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 sm:mt-12 md:gap-6">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 sm:mt-12 md:gap-6 items-stretch">
           {projects.map((p, i) => (
             <ProjectCard key={p.title} project={p} index={i} />
           ))}
@@ -81,7 +81,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             setOpen(true);
           }
         }}
-        className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/10 bg-card/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+        className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/10 bg-card/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
       >
         <div className="relative aspect-[16/11] overflow-hidden">
           <motion.img
@@ -152,7 +152,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             className="group/dialog flex min-h-0 flex-1 flex-col overflow-y-auto text-left"
             aria-label={`Open full page for ${project.title}`}
           >
-            <div className="relative max-h-[28vh] w-full shrink-0 overflow-hidden">
+            <div className="relative max-h-[40vh] w-full shrink-0 overflow-hidden">
               {project.video ? (
                 <video
                   src={project.video}
