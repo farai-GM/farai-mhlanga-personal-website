@@ -1,4 +1,4 @@
-import portrait from "@/assets/Screenshot 2026-07-07 114621.png";
+
 import { Reveal, SectionLabel } from "./Reveal";
 
 export function About() {
@@ -16,7 +16,7 @@ export function About() {
             <Reveal className="relative mx-auto w-full min-[518px]:mx-0 min-[518px]:w-2/5 min-[518px]:flex-shrink-0 md:w-full md:max-w-none">
               <div className="relative aspect-[4/5] max-h-[60vh] overflow-hidden rounded-2xl border border-white/10 md:max-h-none">
                 <img
-                  src={portrait}
+                  src={"/images/Screenshot 2026-07-07 114621.png"}
                   alt="Portrait of Farai Mhlanga"
                   width={1024}
                   height={1280}

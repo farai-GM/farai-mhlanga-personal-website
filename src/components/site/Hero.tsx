@@ -1,8 +1,7 @@
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, Sun, X } from "lucide-react";
-import heroAtmosphere from "@/assets/hero-atmosphere.jpg";
-import heroReveal from "@/assets/Hero Image BG.png";
+
 import { useTheme } from "@/hooks/use-theme";
 import { Particles } from "./Particles";
 
@@ -75,7 +74,7 @@ export function Hero() {
       {/* Background image — parallax */}
       <motion.div style={{ y }} className="absolute inset-0 -z-10">
         <img
-          src={isLightMode ? heroReveal : heroAtmosphere}
+          src={isLightMode ? "/images/Hero Image BG.png": "/images/hero-atmosphere.jpg"}
           alt=""
           aria-hidden
           width={1920}
@@ -103,7 +102,7 @@ export function Hero() {
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0 hidden dark:block"
         style={{
-          backgroundImage: `url(${heroReveal})`,
+          backgroundImage: `url(${"/images/Hero Image BG.png"})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           clipPath: `circle(0px at 0 0)`,

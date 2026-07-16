@@ -1,11 +1,3 @@
-import projectVoice from "@/assets/Voice_Controlled_MK.jpeg";
-import projectWebsite from "@/assets/Screenshot 2026-07-01 212452.png";
-import projectMarv from "@/assets/Robot_car.png";
-import FPGA from "@/assets/FPGA.jpeg";
-import marvVideo from "@/assets/Multi_colour_automnoumous_line_follwoign_robot.mp4";
-import projectVideo from "@/assets/Project Demo Video.mp4";
-import FPGAVideo from "@/assets/FPGA Demo Video.mp4";
-import WebsiteVideo from "@/assets/Website Recording Final 2.mp4";
 
 export type Project = {
   slug: string;
@@ -31,8 +23,8 @@ export const projects: Project[] = [
     summary:
       "An embedded system designed as a human input device that leverages real-time computer vision, voice command recognition, and USB HID emulation to replace the traditional mouse and keyboard.",
     stack: ["Embedded", "Khadas Vim 4", "DSP", "STM32","LTSpice","I2S","UART", "USB Communication Protocol","Hardware Acceleration",  "Python", "C", "C++"],
-    image: projectVoice,
-    video: projectVideo,
+    image: "/images/Voice_Controlled_MK.jpeg",
+    video: "/videos/Project Demo Video.mp4",
     overview:
       "This embedded system was developed to replace the traditional mouse and keyboard by leveraging real-time computer vision and speech recognition. Through USB Human Interface Device (HID) emulation, the system presents itself to Windows 11 as a standard USB mouse and keyboard, enabling seamless integration with the operating system.",
     details: [
@@ -55,8 +47,8 @@ export const projects: Project[] = [
     summary:
       "A multicolour line-following robot designed and built from first principles for autonomous navigation, featuring custom optical sensors and embedded firmware developed entirely in Assembly on a PIC18F45K22.",
     stack: ["MPLABX", "PIC18", "Fusion 360", "LTSpice", "Assembly"],
-    image: projectMarv,
-    video: marvVideo,
+    image: "/images/Robot_car.png",
+    video: "/videos/Multi_colour_automnoumous_line_follwoign_robot.mp4",
     overview:
       "This project involved the end-to-end design and implementation of an autonomous line-following robot capable of identifying and tracking coloured paths using custom-built optical sensors. Every major subsystem—including the sensing hardware, analogue electronics, embedded firmware, mechanical chassis, and control system—was designed and developed from first principles, providing experience across embedded systems, robotics, electronics, control engineering, and mechanical design.",
     details: [
@@ -76,8 +68,8 @@ export const projects: Project[] = [
     summary:
       "A custom FPGA-based memory subsystem implementing synchronous random access memory (RAM), a UART communication controller, and a host interface entirely from first principles on a DE0-Nano FPGA.",
     stack: ["Quartus", "UART Bridge", "Verilog", "Python"],
-    image: FPGA,
-    video: FPGAVideo,
+    image: "/images/FPGA.jpeg",
+    video: "/videos/FPGA_Demo_Video.mp4",
     overview:
       "A from-first-principles FPGA design that exposes on-chip memory over UART, providing a real-time bridge for host-driven signal processing experiments.",
     details: [
@@ -96,8 +88,8 @@ export const projects: Project[] = [
     summary:
       "A responsive portfolio and CV website showcasing my engineering projects through modern web technologies, interactive design, and an AI-assisted development workflow.",
     stack: ["React", "Node.js", "Lovable", "GIT"],
-    image: projectWebsite,
-    video: WebsiteVideo,
+    image: "/images/Screenshot 2026-07-01 212452.png",
+    video: "/videos/Website Recording Final 2.mp4",
     overview:
       "A personal portfolio and CV site built on a modern React stack, tuned for a pleasent user experience, showcasing my engineering project, a dash of my personality and a glimpse into my capabilities as an engineer. ",
     details: [
