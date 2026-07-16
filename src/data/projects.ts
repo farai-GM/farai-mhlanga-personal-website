@@ -5,6 +5,7 @@ import FPGA from "@/assets/FPGA.jpeg";
 import marvVideo from "@/assets/Multi_colour_automnoumous_line_follwoign_robot.mp4";
 import projectVideo from "@/assets/Project Demo Video.mp4";
 import FPGAVideo from "@/assets/FPGA Demo Video.mp4";
+import WebsiteVideo from "@/assets/Website Recording Final 2.mp4";
 
 export type Project = {
   slug: string;
@@ -96,6 +97,7 @@ export const projects: Project[] = [
       "A responsive portfolio and CV website showcasing my engineering projects through modern web technologies, interactive design, and an AI-assisted development workflow.",
     stack: ["React", "Node.js", "Lovable", "GIT"],
     image: projectWebsite,
+    video: WebsiteVideo,
     overview:
       "A personal portfolio and CV site built on a modern React stack, tuned for a pleasent user experience, showcasing my engineering project, a dash of my personality and a glimpse into my capabilities as an engineer. ",
     details: [
