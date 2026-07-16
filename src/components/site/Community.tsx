@@ -56,12 +56,12 @@ As a Christian society, IGNITE also partnered with local churches to expand our 
                   loading="lazy"
                   className="size-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-background/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-background/80 via-background/20  to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
-                  <p className="max-w-sm font-display text-lg leading-snug text-foreground/95 sm:text-xl">
-                    "Leadership is the quiet work that lets other people do loud work."
+                  <p className="rounded-lg max-w-sm font-mono text-sm leading-snug text-foreground/95 sm:text-xs">
+                    "With great power comes great responsibility."  Uncle Ben
                   </p>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/60">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/95">
                     UP · 2023
                   </span>
                 </div>
