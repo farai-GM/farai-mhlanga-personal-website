@@ -1,4 +1,6 @@
-import { env } from "cloudflare:workers";
+interface Env {
+  my_media: R2Bucket;
+}
 
 import "./lib/error-capture";
 
@@ -69,96 +71,85 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 }
 
 export default {
-  async fetch(request: Request, _env: Env, ctx: ExecutionContext){
+  async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
-    // Intercept media requests
-    if (url.pathname.startsWith("/api/media/")) {
-      try {
-        const filename = decodeURIComponent(url.pathname.replace("/api/media/", ""));
-        const bucket = (env as unknown as Env).my_media;
+    if (!url.pathname.startsWith("/api/media/")) {
+      return new Response("Not found", { status: 404 });
+    }
 
-        if (!bucket) {
-          return new Response("R2 Binding not found", { status: 500 });
-        }
+    try {
+      const filename = decodeURIComponent(url.pathname.replace("/api/media/", ""));
+      const bucket = env.my_media;
 
-        const head = await bucket.head(filename);
-        if (head === null) {
-          return new Response("Media not found", { status: 404 });
-        }
+      if (!bucket) {
+        return new Response("R2 Binding not found", { status: 500 });
+      }
 
-        const totalSize = head.size;
-        const rangeHeader = request.headers.get("range");
+      const head = await bucket.head(filename);
+      if (head === null) {
+        return new Response("Media not found", { status: 404 });
+      }
 
-        const commonHeaders = new Headers();
-        head.writeHttpMetadata(commonHeaders);
-        commonHeaders.set("etag", head.httpEtag);
-        commonHeaders.set("accept-ranges", "bytes");
+      const totalSize = head.size;
+      const rangeHeader = request.headers.get("range");
 
-        if (!rangeHeader) {
-          const object = await bucket.get(filename);
-          if (object === null) {
-            return new Response("Media not found", { status: 404 });
-          }
-          commonHeaders.set("content-length", totalSize.toString());
-          return new Response(object.body, { status: 200, headers: commonHeaders });
-        }
+      const commonHeaders = new Headers();
+      head.writeHttpMetadata(commonHeaders);
+      commonHeaders.set("etag", head.httpEtag);
+      commonHeaders.set("accept-ranges", "bytes");
+      commonHeaders.set("access-control-allow-origin", "*"); // needed for cross-origin video from Netlify
 
-        const match = /^bytes=(\d*)-(\d*)$/.exec(rangeHeader);
-        if (!match) {
-          return new Response("Malformed Range header", { status: 416 });
-        }
-
-        let start = match[1] ? parseInt(match[1], 10) : undefined;
-        let end = match[2] ? parseInt(match[2], 10) : undefined;
-
-        if (start === undefined && end === undefined) {
-          return new Response("Malformed Range header", { status: 416 });
-        }
-
-        if (start === undefined) {
-          start = totalSize - (end as number);
-          end = totalSize - 1;
-        } else if (end === undefined) {
-          end = totalSize - 1;
-        }
-
-        if (start > end || start < 0 || end >= totalSize) {
-          return new Response("Range not satisfiable", {
-            status: 416,
-            headers: { "content-range": `bytes */${totalSize}` },
-          });
-        }
-
-        const object = await bucket.get(filename, {
-          range: { offset: start, length: end - start + 1 },
-        });
-
+      if (!rangeHeader) {
+        const object = await bucket.get(filename);
         if (object === null) {
           return new Response("Media not found", { status: 404 });
         }
-
-        commonHeaders.set("content-range", `bytes ${start}-${end}/${totalSize}`);
-        commonHeaders.set("content-length", (end - start + 1).toString());
-
-        return new Response(object.body, { status: 206, headers: commonHeaders });
-      } catch (error) {
-        console.error("Media handler error:", error);
-        return new Response(
-          `Media handler error: ${error instanceof Error ? error.message : String(error)}`,
-          { status: 500 },
-        );
+        commonHeaders.set("content-length", totalSize.toString());
+        return new Response(object.body, { status: 200, headers: commonHeaders });
       }
-    }
 
-    // Fallback to TanStack Start's SSR handler
-    try {
-      const handler = await getServerEntry();
-      const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      const match = /^bytes=(\d*)-(\d*)$/.exec(rangeHeader);
+      if (!match) {
+        return new Response("Malformed Range header", { status: 416 });
+      }
+
+      let start = match[1] ? parseInt(match[1], 10) : undefined;
+      let end = match[2] ? parseInt(match[2], 10) : undefined;
+
+      if (start === undefined && end === undefined) {
+        return new Response("Malformed Range header", { status: 416 });
+      }
+
+      if (start === undefined) {
+        start = totalSize - (end as number);
+        end = totalSize - 1;
+      } else if (end === undefined) {
+        end = totalSize - 1;
+      }
+
+      if (start > end || start < 0 || end >= totalSize) {
+        return new Response("Range not satisfiable", {
+          status: 416,
+          headers: { "content-range": `bytes */${totalSize}` },
+        });
+      }
+
+      const object = await bucket.get(filename, {
+        range: { offset: start, length: end - start + 1 },
+      });
+
+      if (object === null) {
+        return new Response("Media not found", { status: 404 });
+      }
+
+      commonHeaders.set("content-range", `bytes ${start}-${end}/${totalSize}`);
+      commonHeaders.set("content-length", (end - start + 1).toString());
+
+      return new Response(object.body, { status: 206, headers: commonHeaders });
     } catch (error) {
-      console.error(error);
-      return brandedErrorResponse();
+      console.error("Media handler error:", error);
+      return new Response("Internal error", { status: 500 });
     }
   },
 };
