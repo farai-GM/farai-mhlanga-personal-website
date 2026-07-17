@@ -26,9 +26,9 @@ export function About() {
                 <div className="absolute inset-0 bg-gradient-to-t from-card-foreground via-transparent to-transparent" />
                 <div className="absolute inset-x-4 top-4 z-10 md:hidden">
                   <h2 className="max-w-[14rem] font-display text-3xl leading-[1.02] text-white">
-                    Computer Engineer,
+                    Computer engineer,
                     <br />
-                    <span className="text-gray-300">System thinker, constant learner.</span>
+                    <span className="text-gray-300">System thinker, Constant learner.</span>
                   </h2>
                 </div>
                 <div className="absolute bottom-4 left-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted">
