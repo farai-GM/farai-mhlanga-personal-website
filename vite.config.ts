@@ -12,4 +12,14 @@ export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
   },
+  vite: {
+    ssr: {
+      external: ["cloudflare:workers"],
+    },
+    build: {
+      rollupOptions: {
+        external: ["cloudflare:workers"],
+      },
+    },
+  },
 });
