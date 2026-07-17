@@ -74,7 +74,7 @@ export function Hero() {
       {/* Background image — parallax */}
       <motion.div style={{ y }} className="absolute inset-0 -z-10">
         <img
-          src={isLightMode ? "https://tanstack-start-app.faraigmhlanga.workers.dev/api/media/Hero_Image_BG.png": "https://tanstack-start-app.faraigmhlanga.workers.dev/api/media/hero_atmosphere.jpg"}
+          src={isLightMode ? "/api/media/Hero_Image_BG.png": "/api/media/hero_atmosphere.jpg"}
           alt=""
           aria-hidden
           width={1920}
@@ -102,7 +102,7 @@ export function Hero() {
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0 hidden dark:block"
         style={{
-          backgroundImage: `url(${"https://tanstack-start-app.faraigmhlanga.workers.dev/api/media/Hero_Image_BG.png"})`,
+          backgroundImage: `url(${"/api/media/Hero_Image_BG.png"})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           clipPath: `circle(0px at 0 0)`,

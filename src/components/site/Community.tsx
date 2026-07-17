@@ -48,7 +48,7 @@ As a Christian society, IGNITE also partnered with local churches to expand our 
             <Reveal delay={0.1}>
               <div className="relative aspect-[5/4] overflow-hidden rounded-2xl border border-white/10">
                 <img
-                  src="https://tanstack-start-app.faraigmhlanga.workers.dev/api/media/IMG_0957.png"
+                  src="/images/IMG_0957.png"
                   alt="IGNITE Society — community"
                   width={1600}
                   height={1024}
