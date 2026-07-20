@@ -40,7 +40,7 @@ function Index() {
 
   return (
     <div className="relative min-h-screen text-foreground noise">
-      <ScrollAtmosphere />
+    <ScrollAtmosphere /> 
       <Nav />
       <main>
         <Hero />
