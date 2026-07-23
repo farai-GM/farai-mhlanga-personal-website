@@ -52,7 +52,7 @@ export function About() {
               <Reveal delay={0.1}>
                 <p className="text-sm leading-relaxed text-secondary-foreground">
                   Computer Engineering graduate from the{" "}
-                  <span className="text-foreground/90">University of Pretoria</span>, with an intrest
+                  <span className="text-foreground/90">University of Pretoria</span>, with an interest
                   in AI, embedded systems, cyber security and software engineering. Thus, inspiring work in projects ranging from
                   FPGA implementations and digital signal processing to backend services and software engineering.
                   I care about systems thinking: how parts behave when they meet, how to make the complex feel simple.
