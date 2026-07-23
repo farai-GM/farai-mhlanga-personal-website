@@ -90,7 +90,7 @@ export function About() {
             <h2 className="mt-4 hidden font-display text-4xl leading-[1.05] text-foreground sm:text-4xl md:block md:text-5xl">
               Computer Engineer,
               <br />
-              <span className="text-muted-foreground">System thinker, constant learner.</span>
+              <span className="text-muted-foreground">System thinker, Constant learner.</span>
             </h2>
           </Reveal>
 
@@ -99,7 +99,7 @@ export function About() {
             <div className="mt-4 block min-[500px]:hidden md:block space-y-5 text-base leading-relaxed text-secondary-foreground sm:text-sm">
               <p>
                 Computer Engineering graduate from the{" "}
-                <span className="text-foreground/90">University of Pretoria</span>, with an intrest
+                <span className="text-foreground/90">University of Pretoria</span>, with an interest
                 in AI, embedded systems, cyber security and software engineering. Thus, inspiring work in projects ranging from
                 FPGA implementations and digital signal processing to backend services and software engineering.
                 I care about systems thinking: how parts behave when they meet, how to make the complex feel simple.
