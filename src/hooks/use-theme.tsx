@@ -12,13 +12,23 @@ const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 const STORAGE_KEY = "theme";
 
-function readInitialTheme(): Theme {
-  if (typeof document === "undefined") return "dark";
-  return document.documentElement.classList.contains("dark") ? "dark" : "light";
+function readStoredTheme(): Theme | null {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored === "light" || stored === "dark" ? stored : null;
+  } catch {
+    return null;
+  }
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(readInitialTheme);
+  const [theme, setThemeState] = useState<Theme>("dark");
+
+  // Sync with the persisted theme after hydration so SSR and client markup match.
+  useEffect(() => {
+    const stored = readStoredTheme();
+    if (stored) setThemeState(stored);
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
