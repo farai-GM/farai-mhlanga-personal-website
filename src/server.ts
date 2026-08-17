@@ -1,5 +1,3 @@
-import { env } from "cloudflare:workers";
-
 import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
@@ -69,89 +67,7 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 }
 
 export default {
-  async fetch(request: Request, _env: Env, ctx: ExecutionContext){
-    const url = new URL(request.url);
-
-    // Intercept media requests
-    if (url.pathname.startsWith("/api/media/")) {
-      try {
-        const filename = decodeURIComponent(url.pathname.replace("/api/media/", ""));
-        const bucket = (env as unknown as Env).my_media;
-
-        if (!bucket) {
-          return new Response("R2 Binding not found", { status: 500 });
-        }
-
-        const head = await bucket.head(filename);
-        if (head === null) {
-          return new Response("Media not found", { status: 404 });
-        }
-
-        const totalSize = head.size;
-        const rangeHeader = request.headers.get("range");
-
-        const commonHeaders = new Headers();
-        head.writeHttpMetadata(commonHeaders);
-        commonHeaders.set("etag", head.httpEtag);
-        commonHeaders.set("accept-ranges", "bytes");
-
-        if (!rangeHeader) {
-          const object = await bucket.get(filename);
-          if (object === null) {
-            return new Response("Media not found", { status: 404 });
-          }
-          commonHeaders.set("content-length", totalSize.toString());
-          return new Response(object.body, { status: 200, headers: commonHeaders });
-        }
-
-        const match = /^bytes=(\d*)-(\d*)$/.exec(rangeHeader);
-        if (!match) {
-          return new Response("Malformed Range header", { status: 416 });
-        }
-
-        let start = match[1] ? parseInt(match[1], 10) : undefined;
-        let end = match[2] ? parseInt(match[2], 10) : undefined;
-
-        if (start === undefined && end === undefined) {
-          return new Response("Malformed Range header", { status: 416 });
-        }
-
-        if (start === undefined) {
-          start = totalSize - (end as number);
-          end = totalSize - 1;
-        } else if (end === undefined) {
-          end = totalSize - 1;
-        }
-
-        if (start > end || start < 0 || end >= totalSize) {
-          return new Response("Range not satisfiable", {
-            status: 416,
-            headers: { "content-range": `bytes */${totalSize}` },
-          });
-        }
-
-        const object = await bucket.get(filename, {
-          range: { offset: start, length: end - start + 1 },
-        });
-
-        if (object === null) {
-          return new Response("Media not found", { status: 404 });
-        }
-
-        commonHeaders.set("content-range", `bytes ${start}-${end}/${totalSize}`);
-        commonHeaders.set("content-length", (end - start + 1).toString());
-
-        return new Response(object.body, { status: 206, headers: commonHeaders });
-      } catch (error) {
-        console.error("Media handler error:", error);
-        return new Response(
-          `Media handler error: ${error instanceof Error ? error.message : String(error)}`,
-          { status: 500 },
-        );
-      }
-    }
-
-    // Fallback to TanStack Start's SSR handler
+  async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
