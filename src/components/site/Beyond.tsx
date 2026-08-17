@@ -2,7 +2,7 @@ import { Reveal, SectionLabel } from "./Reveal";
 
 const panels = [
   {
-    image: "/api/media/Piano_1.avif",
+    image: "/api/public/media/Piano_1.avif",
     label: "Music",
     title: "How Music Meets Engineering.",
     body:
@@ -11,7 +11,7 @@ const panels = [
     accent: "from-[oklch(0.86_0.16_200/0.55)] to-transparent",
   },
   {
-    image: "/api/media/Cinema.png",
+    image: "/api/public/media/Cinema.png",
     label: "Cinema",
     title: "The Art of Storytelling.",
     body:
@@ -20,7 +20,7 @@ const panels = [
     accent: "from-[oklch(0.72_0.28_340/0.55)] to-transparent",
   },
   {
-    image: "/api/media/church_inside.avif",
+    image: "/api/public/media/church_inside.avif",
     label: "Church",
     title: "The long quiet questions.",
     body:
